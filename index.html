@@ -1016,6 +1016,7 @@
         btn.innerHTML = '<span class="spinner"></span> Saving...';
 
         const payload = {
+          source: 'aa-member',
           submitted_at: new Date().toISOString(),
           full_name: val('fullName'),
           email: val('email'),

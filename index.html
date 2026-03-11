@@ -467,6 +467,19 @@
             <div class="field-error hidden" id="err-inspirationImages"></div>
           </div>
 
+          <!-- Brand photos -->
+          <div class="field" style="margin-top:28px">
+            <label class="field-label">Feature photos</label>
+            <div class="dropzone" id="brand-dropzone">
+              <div class="upload-icon">&#8682;</div>
+              <p class="upload-text"><span class="highlight">Click to upload</span> or drag and drop</p>
+              <p class="upload-meta">Up to 5 photos - max 10 MB each - JPG, PNG, WEBP</p>
+            </div>
+            <input type="file" id="brand-file-input" accept="image/*" multiple style="display:none">
+            <div class="file-grid" id="brand-file-grid"></div>
+            <p class="field-hint">Optional - upload up to 5 photos of yourself, your products, or your space. These get built into your brand guide and social media templates for a truly personalised look.</p>
+          </div>
+
           <!-- Photo style -->
           <div class="field" style="margin-top:28px">
             <label class="field-label">Photo style preference<span class="req">*</span></label>
@@ -570,6 +583,7 @@
     let logoStyle = '';
     let photoStyle = '';
     let files = [];
+    let brandPhotoFiles = [];
     let submitting = false;
 
     // -------------------------------------------------------------------------
@@ -588,6 +602,7 @@
       renderLogoStyles();
       renderPhotoStyles();
       setupDropzone();
+      setupBrandDropzone();
 
       $('btn-next').addEventListener('click', handleNext);
       $('btn-back').addEventListener('click', handleBack);
@@ -730,6 +745,7 @@
         ['Logo style', logoStyle || '-'],
         ['Vibe words', vibeWords.join(', ') || '-'],
         ['Inspiration images', files.length + ' uploaded'],
+        ['Feature photos', brandPhotoFiles.length > 0 ? brandPhotoFiles.length + ' uploaded' : 'None'],
         ['Photo style', photoStyle || '-'],
       ].map(([k, v]) => `<div><p class="rk">${k}</p><p class="rv">${v}</p></div>`).join('');
     }
@@ -768,6 +784,72 @@
       renderFiles();
       updateDropzoneText();
       clearError('inspirationImages');
+    }
+
+    // -------------------------------------------------------------------------
+    // Brand Photos Dropzone
+    // -------------------------------------------------------------------------
+    function setupBrandDropzone() {
+      const dz = $('brand-dropzone');
+      const input = $('brand-file-input');
+
+      dz.addEventListener('click', () => { if (brandPhotoFiles.length < 5) input.click(); });
+      dz.addEventListener('dragover', (e) => { e.preventDefault(); dz.classList.add('dragging'); });
+      dz.addEventListener('dragleave', () => dz.classList.remove('dragging'));
+      dz.addEventListener('drop', (e) => {
+        e.preventDefault();
+        dz.classList.remove('dragging');
+        addBrandFiles(e.dataTransfer.files);
+      });
+
+      input.addEventListener('change', (e) => {
+        addBrandFiles(e.target.files);
+        input.value = '';
+      });
+    }
+
+    function addBrandFiles(fileList) {
+      const remaining = 5 - brandPhotoFiles.length;
+      Array.from(fileList).slice(0, remaining).forEach(f => {
+        if (f.size > MAX_FILE_SIZE) {
+          alert(f.name + ' is over 10 MB and was skipped.');
+        } else {
+          brandPhotoFiles.push(f);
+        }
+      });
+      renderBrandFiles();
+      updateBrandDropzoneText();
+    }
+
+    function renderBrandFiles() {
+      const grid = $('brand-file-grid');
+      grid.innerHTML = brandPhotoFiles.map((f, i) => {
+        const url = URL.createObjectURL(f);
+        return `<div class="file-thumb">
+          <img src="${url}" alt="Photo ${i+1}">
+          <div class="remove" data-idx="${i}">&times;</div>
+          <div class="fname">${f.name}</div>
+        </div>`;
+      }).join('');
+
+      grid.querySelectorAll('.remove').forEach(el => {
+        el.addEventListener('click', (e) => {
+          e.stopPropagation();
+          brandPhotoFiles.splice(parseInt(el.dataset.idx), 1);
+          renderBrandFiles();
+          updateBrandDropzoneText();
+        });
+      });
+    }
+
+    function updateBrandDropzoneText() {
+      const dz = $('brand-dropzone');
+      const txt = dz.querySelector('.upload-text');
+      if (brandPhotoFiles.length >= 5) {
+        txt.innerHTML = 'Maximum 5 photos uploaded';
+      } else {
+        txt.innerHTML = '<span class="highlight">Click to upload</span> or drag and drop';
+      }
     }
 
     // -------------------------------------------------------------------------
@@ -904,11 +986,23 @@
         const folder = Date.now() + '-' + val('email').replace(/[^a-z0-9]/gi, '_');
 
         // Upload inspiration images
+        const totalUploads = files.length + brandPhotoFiles.length;
+        let uploadCount = 0;
         const inspirationUrls = [];
         for (let i = 0; i < files.length; i++) {
-          btn.innerHTML = '<span class="spinner"></span> Uploading image ' + (i+1) + ' of ' + files.length + '...';
+          uploadCount++;
+          btn.innerHTML = '<span class="spinner"></span> Uploading image ' + uploadCount + ' of ' + totalUploads + '...';
           const url = await uploadFile(files[i], folder + '/inspiration');
           inspirationUrls.push(url);
+        }
+
+        // Upload brand photos
+        const brandPhotoUrls = [];
+        for (let i = 0; i < brandPhotoFiles.length; i++) {
+          uploadCount++;
+          btn.innerHTML = '<span class="spinner"></span> Uploading image ' + uploadCount + ' of ' + totalUploads + '...';
+          const url = await uploadFile(brandPhotoFiles[i], folder + '/brand-photos');
+          brandPhotoUrls.push(url);
         }
 
         btn.innerHTML = '<span class="spinner"></span> Saving...';
@@ -928,6 +1022,7 @@
           logo_style: logoStyle,
           brand_admiration: val('brandAdmiration') || null,
           inspiration_image_urls: inspirationUrls,
+          brand_photo_urls: brandPhotoUrls,
           photo_style: photoStyle,
           colour_preferences: val('colourPreferences') || null,
           anything_else: val('anythingElse') || null,
@@ -947,7 +1042,7 @@
             business_name: val('businessName'),
             status: 'ready',
             questionnaire_data: payload,
-            upload_paths: { inspiration: inspirationUrls },
+            upload_paths: { inspiration: inspirationUrls, brand_photos: brandPhotoUrls },
           }),
         });
 

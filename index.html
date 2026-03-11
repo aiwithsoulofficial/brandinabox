@@ -194,6 +194,7 @@
       opacity: 0; transition: opacity 0.2s; color: white; font-size: 12px;
     }
     .file-thumb:hover .remove { opacity: 1; }
+    @media (hover: none) { .file-thumb .remove { opacity: 1; } }
     .file-thumb .fname {
       position: absolute; bottom: 0; left: 0; right: 0;
       background: linear-gradient(transparent, rgba(0,0,0,0.6)); padding: 4px 6px;
@@ -775,7 +776,9 @@
     function addFiles(fileList) {
       const remaining = 5 - files.length;
       Array.from(fileList).slice(0, remaining).forEach(f => {
-        if (f.size > MAX_FILE_SIZE) {
+        if (!f.type.startsWith('image/')) {
+          alert(f.name + ' is not an image and was skipped.');
+        } else if (f.size > MAX_FILE_SIZE) {
           alert(f.name + ' is over 10 MB and was skipped.');
         } else {
           files.push(f);
@@ -811,7 +814,9 @@
     function addBrandFiles(fileList) {
       const remaining = 5 - brandPhotoFiles.length;
       Array.from(fileList).slice(0, remaining).forEach(f => {
-        if (f.size > MAX_FILE_SIZE) {
+        if (!f.type.startsWith('image/')) {
+          alert(f.name + ' is not an image and was skipped.');
+        } else if (f.size > MAX_FILE_SIZE) {
           alert(f.name + ' is over 10 MB and was skipped.');
         } else {
           brandPhotoFiles.push(f);
@@ -939,9 +944,12 @@
 
       if (currentStep === 5) {
         if (!val('colourPreferences')) { showError('colourPreferences', 'Tell us about any colour preferences'); valid = false; }
-        if (!val('anythingElse')) { showError('anythingElse', 'Anything else we should know about your brand'); valid = false; }
       }
 
+      if (!valid) {
+        const firstErr = document.querySelector('.field-error:not(.hidden)');
+        if (firstErr) firstErr.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
       return valid;
     }
 
@@ -1061,6 +1069,7 @@
         console.error('[BIAB] Submit error:', err);
         $('submit-error').classList.remove('hidden');
         $('submit-error-msg').textContent = 'Something went wrong uploading your files. Please try again or email kelly@aiwithsoul.com.au';
+        $('submit-error').scrollIntoView({ behavior: 'smooth', block: 'center' });
         btn.disabled = false;
         btn.innerHTML = '&#10024; Build My Brand';
       } finally {

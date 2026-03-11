@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: brandinabox
+    runtime: static
+    buildCommand: echo "static site"
+    staticPublishPath: .
+    headers:
+      - path: /*
+        name: X-Frame-Options
+        value: DENY

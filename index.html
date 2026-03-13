@@ -3,639 +3,1086 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Brand in a Box - Complete Brand Identity Kit | AI with Soul</title>
-  <meta name="description" content="Your complete brand identity - brand guide, colour palette, voice guide, design system, 30 templates, and logo suite - generated from your photos and answers in minutes. $97 one-time.">
+  <title>Brand in a Box - Aligned &amp; Amplified</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --navy: #07111f;
-      --navy-mid: #0f1e36;
-      --gold: #d4af67;
-      --gold-light: #e6c88a;
-      --copper: #B87333;
-      --cream: #F7E7CE;
-      --cream-dim: rgba(247,231,206,0.5);
-      --cream-faint: rgba(247,231,206,0.3);
+      --void: #151a25;
+      --void-mid: #1c2233;
+      --void-deep: #0e1219;
+      --gold: #B3A14E;
+      --gold-warm: #C5A059;
+      --gold-light: #D4BC6A;
+      --cream: #FAF8F5;
+      --tan: #C9B89E;
+      --charcoal: #2A2A2A;
+      --white-5: rgba(255,255,255,0.05);
+      --white-8: rgba(255,255,255,0.08);
+      --white-10: rgba(255,255,255,0.1);
     }
 
-    html { scroll-behavior: smooth; }
-
     body {
-      font-family: 'DM Sans', -apple-system, sans-serif;
-      background: var(--navy);
-      color: #e2e8f0;
+      font-family: 'Montserrat', -apple-system, sans-serif;
+      background: var(--void);
+      color: #e0e0e0;
       min-height: 100vh;
       -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
     }
 
     .serif { font-family: 'Cormorant Garamond', Georgia, serif; }
 
-    /* ── GRAIN OVERLAY ── */
-    .grain {
-      position: fixed; top: -50%; left: -50%;
-      width: 200%; height: 200%;
-      pointer-events: none; z-index: 9999; opacity: 0.03;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-      animation: grain-shift 0.5s steps(1) infinite;
-    }
-    @keyframes grain-shift {
-      0% { transform: translate(0,0); }
-      25% { transform: translate(-3%,-3%); }
-      50% { transform: translate(3%,1%); }
-      75% { transform: translate(-1%,3%); }
-      100% { transform: translate(2%,-2%); }
-    }
-
-    /* ── AMBIENT GLOW ── */
+    /* Ambient glow */
     .glow {
       position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden;
     }
     .glow::before {
-      content: ''; position: absolute; top: 10%; left: 20%;
-      width: 600px; height: 600px; background: rgba(212,175,103,0.04);
+      content: ''; position: absolute; top: 0; left: 33%;
+      width: 500px; height: 500px; background: rgba(179,161,78,0.06);
       border-radius: 50%; filter: blur(150px);
     }
     .glow::after {
-      content: ''; position: absolute; bottom: 20%; right: 15%;
-      width: 500px; height: 500px; background: rgba(184,115,51,0.03);
+      content: ''; position: absolute; bottom: 25%; right: 25%;
+      width: 400px; height: 400px; background: rgba(179,161,78,0.05);
       border-radius: 50%; filter: blur(120px);
     }
 
-    /* ── HERO ── */
-    .hero {
+    .container {
       position: relative; z-index: 10;
-      min-height: 100vh;
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      text-align: center;
-      padding: 80px 24px 40px;
-    }
-    .hero-label {
-      font-size: 0.65rem; font-weight: 400;
-      letter-spacing: 0.35em; text-transform: uppercase;
-      color: var(--gold); margin-bottom: 24px;
-      display: flex; align-items: center; gap: 16px;
-    }
-    .hero-label::before, .hero-label::after {
-      content: ''; width: 32px; height: 1px; background: var(--gold);
-    }
-    .hero h1 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2.8rem, 7vw, 5.5rem);
-      font-weight: 300; font-style: italic;
-      color: var(--cream); line-height: 1.05;
-      letter-spacing: -0.03em; margin-bottom: 24px;
-    }
-    .hero h1 span { color: var(--gold); }
-    .hero-sub {
-      font-size: 1rem; font-weight: 200;
-      color: var(--cream-dim); line-height: 1.8;
-      max-width: 560px; letter-spacing: 0.02em;
-      margin-bottom: 40px;
-    }
-    .scroll-cue {
-      margin-top: auto;
-      display: flex; flex-direction: column; align-items: center; gap: 8px;
-      color: var(--cream-faint); font-size: 0.65rem;
-      letter-spacing: 0.2em; text-transform: uppercase;
-    }
-    .scroll-cue .line {
-      width: 1px; height: 48px;
-      background: linear-gradient(to bottom, var(--gold), transparent);
-      animation: pulse-line 2s ease-in-out infinite;
-    }
-    @keyframes pulse-line {
-      0%, 100% { opacity: 0.3; transform: scaleY(1); }
-      50% { opacity: 1; transform: scaleY(1.3); }
+      max-width: 680px; margin: 0 auto; padding: 80px 16px 96px;
     }
 
-    /* ── 3D BOX ── */
-    .box-scene {
-      position: relative; z-index: 10;
-      min-height: 100vh;
-      display: flex; align-items: center; justify-content: center;
-      padding: 80px 24px;
-      perspective: 1200px;
+    /* Header */
+    .header { text-align: center; margin-bottom: 32px; }
+    .header .brand {
+      font-family: 'Cormorant Garamond', serif; font-style: italic;
+      font-size: 1.5rem; font-weight: 400; color: var(--gold);
+      letter-spacing: 0.05em; margin-bottom: 4px;
     }
-    .box-container {
-      position: relative;
-      width: 320px; height: 240px;
-      transform-style: preserve-3d;
-      transform: rotateX(10deg) rotateY(-15deg);
+    .header .subtitle {
+      font-size: 0.75rem; color: var(--tan); text-transform: uppercase;
+      letter-spacing: 0.25em; font-weight: 500; margin-bottom: 16px;
     }
-    .box-face {
-      position: absolute;
-      background: linear-gradient(135deg, rgba(212,175,103,0.12), rgba(15,30,54,0.95));
-      border: 1px solid rgba(212,175,103,0.25);
-      backdrop-filter: blur(8px);
+    .header h1 {
+      font-family: 'Cormorant Garamond', serif; font-size: 2rem;
+      font-weight: 600; color: white; line-height: 1.2; margin-bottom: 8px;
     }
-    /* Front */
-    .box-front {
-      width: 320px; height: 240px;
-      transform: translateZ(100px);
-    }
-    .box-front-inner {
-      width: 100%; height: 100%;
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      gap: 8px; padding: 24px;
-    }
-    .box-front-inner .logo-text {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.6rem; font-weight: 300; font-style: italic;
-      color: var(--gold); letter-spacing: 0.02em;
-    }
-    .box-front-inner .logo-sub {
-      font-size: 0.55rem; letter-spacing: 0.3em;
-      text-transform: uppercase; color: var(--cream-faint);
-    }
-    /* Back */
-    .box-back {
-      width: 320px; height: 240px;
-      transform: translateZ(-100px) rotateY(180deg);
-    }
-    /* Left */
-    .box-left {
-      width: 200px; height: 240px;
-      transform: rotateY(-90deg) translateZ(160px);
-    }
-    /* Right */
-    .box-right {
-      width: 200px; height: 240px;
-      transform: rotateY(90deg) translateZ(160px);
-    }
-    /* Bottom */
-    .box-bottom {
-      width: 320px; height: 200px;
-      transform: rotateX(-90deg) translateZ(120px);
-    }
-    /* Lid */
-    .box-lid {
-      width: 324px; height: 204px;
-      left: -2px;
-      transform-origin: 0% 0%;
-      transform: rotateX(90deg) translateZ(-120px) translateY(-204px);
-      background: linear-gradient(135deg, rgba(212,175,103,0.2), rgba(15,30,54,0.95));
-      border: 1px solid rgba(212,175,103,0.35);
-      transition: transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
-      z-index: 20;
-    }
-    .box-lid.open {
-      transform: rotateX(90deg) translateZ(-120px) translateY(-204px) rotateX(-130deg);
-    }
-    .box-lid-inner {
-      width: 100%; height: 100%;
-      display: flex; align-items: center; justify-content: center;
-    }
-    .box-lid-inner .stamp {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.1rem; font-style: italic;
-      color: var(--gold); opacity: 0.6;
-    }
+    .header p { color: #888; font-size: 0.875rem; font-weight: 300; }
 
-    /* ── FLOATING CARDS (inside box, animate out) ── */
-    .float-cards {
-      position: absolute;
-      top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      width: 100%; height: 100%;
-      pointer-events: none;
-      z-index: 30;
+    /* Progress */
+    .progress { margin-bottom: 32px; }
+    .progress-info { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+    .progress-info span { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.15em; font-weight: 500; }
+    .progress-info .step-label { color: #888; }
+    .progress-info .pct { color: var(--gold); }
+    .progress-bar { height: 6px; background: var(--white-5); border-radius: 99px; overflow: hidden; }
+    .progress-fill {
+      height: 100%; border-radius: 99px; transition: width 0.5s ease;
+      background: linear-gradient(90deg, var(--gold), var(--gold-light));
     }
-    .float-card {
-      position: absolute;
-      width: 200px;
-      border-radius: 12px;
-      overflow: hidden;
-      border: 1px solid rgba(212,175,103,0.2);
-      box-shadow: 0 8px 40px rgba(0,0,0,0.6);
-      opacity: 0;
-      transform: translate(-50%, -50%) scale(0.3);
-      transition: all 1.2s cubic-bezier(0.34, 1.56, 0.64, 1);
-      top: 50%; left: 50%;
+    .steps-dots { display: none; justify-content: space-between; margin-top: 12px; }
+    @media (min-width: 640px) { .steps-dots { display: flex; } }
+    .step-dot { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+    .step-circle {
+      width: 28px; height: 28px; border-radius: 50%; display: flex;
+      align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700;
+      transition: all 0.3s;
     }
-    .float-card img {
-      width: 100%; display: block;
-      aspect-ratio: 3/4; object-fit: cover; object-position: top;
+    .step-circle.done { background: var(--gold); color: var(--void); }
+    .step-circle.current { background: rgba(179,161,78,0.2); border: 2px solid var(--gold); color: var(--gold); }
+    .step-circle.future { background: var(--white-5); border: 1px solid var(--white-10); color: #666; }
+    .step-name { font-size: 10px; font-weight: 500; }
+    .step-name.active { color: var(--gold); }
+    .step-name.inactive { color: #666; }
+
+    /* Card */
+    .card {
+      background: rgba(255,255,255,0.03); backdrop-filter: blur(10px);
+      border: 1px solid var(--white-8); border-radius: 20px; padding: 24px;
     }
-    .float-card .card-label {
+    @media (min-width: 640px) { .card { padding: 32px; border-radius: 24px; } }
+
+    /* Form elements */
+    .field { margin-bottom: 20px; }
+    .field:last-child { margin-bottom: 0; }
+    .field-label {
+      display: block; font-size: 0.875rem; font-weight: 500; color: #ccc; margin-bottom: 6px;
+    }
+    .field-label .req { color: var(--gold); margin-left: 4px; }
+    .field-hint { font-size: 0.75rem; color: #666; font-weight: 300; margin-top: 4px; }
+    .field-error { font-size: 0.75rem; color: #f87171; margin-top: 4px; display: flex; align-items: center; gap: 4px; }
+
+    input[type="text"], input[type="email"], input[type="url"], textarea {
+      width: 100%; background: var(--white-5); border: 1px solid var(--white-10);
+      border-radius: 12px; padding: 12px 16px; color: white; font-family: inherit;
+      font-size: 0.875rem; outline: none; transition: all 0.2s;
+    }
+    input:focus, textarea:focus {
+      border-color: rgba(179,161,78,0.6); background: rgba(255,255,255,0.08);
+    }
+    input::placeholder, textarea::placeholder { color: #555; }
+    textarea { resize: none; }
+
+    /* Section header */
+    .section-header { margin-bottom: 20px; }
+    .section-header h2 {
+      font-family: 'Cormorant Garamond', serif; font-size: 1.5rem;
+      font-weight: 600; color: white; margin-bottom: 4px;
+    }
+    .section-header p { color: #888; font-size: 0.875rem; font-weight: 300; }
+
+    /* Pill selectors (vibe words, photo style) */
+    .pills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+    .pill {
+      padding: 8px 16px; border-radius: 99px; font-size: 0.875rem; font-weight: 500;
+      border: 1px solid var(--white-10); background: var(--white-5); color: #999;
+      cursor: pointer; transition: all 0.2s; user-select: none;
+    }
+    .pill:hover { border-color: rgba(179,161,78,0.4); color: #ccc; }
+    .pill.selected {
+      background: var(--gold); border-color: var(--gold); color: var(--void);
+      box-shadow: 0 0 12px rgba(179,161,78,0.3);
+    }
+    .pill.disabled { opacity: 0.3; cursor: not-allowed; }
+
+    /* Card selectors (archetypes, logo styles) */
+    .card-grid { display: grid; grid-template-columns: 1fr; gap: 12px; margin-top: 4px; }
+    @media (min-width: 640px) { .card-grid { grid-template-columns: 1fr 1fr; } }
+    .selector-card {
+      display: flex; align-items: flex-start; gap: 12px; padding: 16px;
+      border-radius: 16px; border: 1px solid var(--white-8); background: rgba(255,255,255,0.03);
+      cursor: pointer; transition: all 0.2s; text-align: left;
+    }
+    .selector-card:hover { border-color: rgba(179,161,78,0.25); background: var(--white-5); }
+    .selector-card.selected {
+      border-color: rgba(179,161,78,0.6); background: rgba(179,161,78,0.08);
+      box-shadow: 0 0 20px rgba(179,161,78,0.1);
+    }
+    .selector-card .emoji { font-size: 1.5rem; line-height: 1; margin-top: 2px; }
+    .selector-card .card-name { font-weight: 700; font-size: 0.875rem; color: white; }
+    .selector-card.selected .card-name { color: var(--gold); }
+    .selector-card .card-desc { font-size: 0.75rem; color: #888; font-weight: 300; margin-top: 2px; }
+    .selector-card .check { margin-left: auto; flex-shrink: 0; color: var(--gold); font-size: 1rem; margin-top: 2px; }
+
+    /* File dropzone */
+    .dropzone {
+      border: 2px dashed var(--white-10); border-radius: 16px; padding: 32px;
+      text-align: center; cursor: pointer; transition: all 0.2s;
+    }
+    .dropzone:hover { border-color: rgba(179,161,78,0.4); background: rgba(255,255,255,0.02); }
+    .dropzone.dragging { border-color: var(--gold); background: rgba(179,161,78,0.05); }
+    .dropzone.has-error { border-color: rgba(248,113,113,0.4); }
+    .dropzone .upload-icon { font-size: 2rem; color: #555; margin-bottom: 8px; }
+    .dropzone .upload-text { font-size: 0.875rem; color: #999; font-weight: 300; }
+    .dropzone .upload-text .highlight { color: var(--gold); font-weight: 500; }
+    .dropzone .upload-meta { font-size: 0.75rem; color: #555; margin-top: 4px; }
+
+    .file-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 12px; }
+    @media (min-width: 640px) { .file-grid { grid-template-columns: repeat(5, 1fr); } }
+    .file-thumb {
+      position: relative; aspect-ratio: 1; border-radius: 12px; overflow: hidden;
+      background: var(--white-5); border: 1px solid var(--white-10);
+    }
+    .file-thumb img { width: 100%; height: 100%; object-fit: cover; }
+    .file-thumb .remove {
+      position: absolute; top: 4px; right: 4px; width: 24px; height: 24px;
+      border-radius: 50%; background: rgba(0,0,0,0.7); border: 1px solid rgba(255,255,255,0.2);
+      display: flex; align-items: center; justify-content: center; cursor: pointer;
+      opacity: 0; transition: opacity 0.2s; color: white; font-size: 12px;
+    }
+    .file-thumb:hover .remove { opacity: 1; }
+    @media (hover: none) { .file-thumb .remove { opacity: 1; } }
+    .file-thumb .fname {
       position: absolute; bottom: 0; left: 0; right: 0;
-      padding: 8px 12px;
-      background: linear-gradient(to top, rgba(7,17,31,0.95), transparent);
-      font-size: 0.65rem; font-weight: 500;
-      letter-spacing: 0.15em; text-transform: uppercase;
-      color: var(--gold);
+      background: linear-gradient(transparent, rgba(0,0,0,0.6)); padding: 4px 6px;
+      font-size: 10px; color: #ccc; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
     }
 
-    /* Landed positions */
-    .float-card.landed {
-      opacity: 1;
-      pointer-events: auto;
-      cursor: pointer;
+    /* Review summary */
+    .review {
+      background: rgba(255,255,255,0.02); border: 1px solid var(--white-8);
+      border-radius: 16px; padding: 20px;
     }
-    .float-card.landed:nth-child(1) {
-      top: auto; left: auto; bottom: 0; right: auto;
-      transform: translate(-260px, 180px) rotate(-4deg) scale(1);
+    .review-label {
+      font-size: 0.75rem; color: var(--gold); text-transform: uppercase;
+      letter-spacing: 0.15em; font-weight: 500; margin-bottom: 12px;
     }
-    .float-card.landed:nth-child(2) {
-      top: auto; left: auto;
-      transform: translate(-80px, 200px) rotate(2deg) scale(1);
-    }
-    .float-card.landed:nth-child(3) {
-      top: auto; left: auto;
-      transform: translate(80px, 190px) rotate(-1deg) scale(1);
-    }
-    .float-card.landed:nth-child(4) {
-      top: auto; left: auto;
-      transform: translate(260px, 175px) rotate(3deg) scale(1);
-    }
-    .float-card.landed:nth-child(5) {
-      top: auto; left: auto;
-      transform: translate(0px, 320px) rotate(-2deg) scale(1);
-    }
+    .review-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 24px; font-size: 0.875rem; }
+    .review-grid .rk { font-size: 0.75rem; color: #555; font-weight: 300; }
+    .review-grid .rv { color: #ccc; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 
-    /* ── DISPLAY SECTION ── */
-    .display-section {
-      position: relative; z-index: 10;
-      padding: 120px 24px 80px;
+    /* Error banner */
+    .error-banner {
+      background: rgba(239,68,68,0.1); border: 1px solid rgba(239,68,68,0.2);
+      border-radius: 12px; padding: 16px; display: flex; align-items: flex-start;
+      gap: 12px; margin-top: 16px;
     }
-    .display-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 24px;
-      max-width: 1100px; margin: 0 auto;
-    }
-    .display-card {
-      border-radius: 16px; overflow: hidden;
-      border: 1px solid rgba(212,175,103,0.15);
-      background: rgba(255,255,255,0.02);
-      backdrop-filter: blur(8px);
-      transition: transform 0.4s ease, border-color 0.4s ease;
-      opacity: 0; transform: translateY(40px);
-      transition: opacity 0.8s ease, transform 0.8s ease, border-color 0.4s ease;
-    }
-    .display-card.visible {
-      opacity: 1; transform: translateY(0);
-    }
-    .display-card:hover {
-      transform: translateY(-4px);
-      border-color: rgba(212,175,103,0.4);
-    }
-    .display-card img {
-      width: 100%; aspect-ratio: 4/3;
-      object-fit: cover; object-position: top;
-      display: block;
-    }
-    .display-card-body {
-      padding: 20px;
-    }
-    .display-card-body h3 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.3rem; font-weight: 400;
-      color: var(--cream); margin-bottom: 8px;
-    }
-    .display-card-body p {
-      font-size: 0.8rem; font-weight: 200;
-      color: var(--cream-dim); line-height: 1.7;
-    }
+    .error-banner .icon { color: #f87171; flex-shrink: 0; font-size: 1.25rem; }
+    .error-banner p { color: #fca5a5; font-size: 0.875rem; font-weight: 300; }
 
-    /* ── SECTION LABELS ── */
-    .section-label {
-      display: flex; align-items: center; gap: 16px;
-      font-size: 0.65rem; font-weight: 400;
-      letter-spacing: 0.35em; text-transform: uppercase;
-      color: var(--gold); margin-bottom: 24px;
-      justify-content: center;
-    }
-    .section-label::before {
-      content: ''; width: 32px; height: 1px; background: var(--gold);
-    }
+    /* Buttons */
+    .nav-buttons { display: flex; margin-top: 32px; gap: 12px; }
+    .nav-buttons.has-back { justify-content: space-between; }
+    .nav-buttons:not(.has-back) { justify-content: flex-end; }
 
-    /* ── DIVIDER ── */
-    .hr-gold {
-      border: none; height: 1px; margin: 0;
-      background: linear-gradient(to right, transparent, rgba(212,175,103,0.3), transparent);
+    .btn-back {
+      display: flex; align-items: center; gap: 8px; padding: 12px 20px;
+      border-radius: 12px; border: 1px solid var(--white-10); background: transparent;
+      color: #999; font-family: inherit; font-size: 0.875rem; font-weight: 500;
+      cursor: pointer; transition: all 0.2s;
     }
+    .btn-back:hover { color: white; border-color: rgba(255,255,255,0.2); }
 
-    /* ── CTA SECTION ── */
-    .cta-section {
-      position: relative; z-index: 10;
-      padding: 100px 24px; text-align: center;
+    .btn-next, .btn-submit {
+      display: flex; align-items: center; gap: 8px; padding: 12px 24px;
+      border-radius: 12px; border: none;
+      background: linear-gradient(135deg, var(--gold-warm), var(--gold));
+      color: var(--void); font-family: inherit; font-size: 0.875rem; font-weight: 700;
+      cursor: pointer; transition: all 0.2s; box-shadow: 0 4px 16px rgba(179,161,78,0.3);
     }
-    .cta-section h2 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2rem, 5vw, 3.5rem);
-      font-weight: 300; font-style: italic;
-      color: var(--cream); margin-bottom: 16px;
+    .btn-next:hover, .btn-submit:hover {
+      background: linear-gradient(135deg, var(--gold-light), var(--gold-warm));
+      box-shadow: 0 6px 24px rgba(179,161,78,0.4); transform: translateY(-1px);
     }
-    .cta-section h2 span { color: var(--gold); }
-    .cta-section .price {
-      font-size: 3.5rem; font-weight: 600;
-      color: var(--gold); margin: 24px 0 8px;
-    }
-    .cta-section .price-note {
-      font-size: 0.8rem; color: var(--cream-faint);
-      margin-bottom: 32px;
-    }
-    .cta-btn {
-      display: inline-block;
-      padding: 18px 48px;
-      background: var(--gold);
-      color: var(--navy);
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.85rem; font-weight: 600;
-      letter-spacing: 0.15em; text-transform: uppercase;
-      text-decoration: none;
-      border-radius: 0;
-      transition: all 0.4s ease;
-      position: relative; overflow: hidden;
-    }
-    .cta-btn:hover {
-      background: var(--gold-light);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 30px rgba(212,175,103,0.3);
-    }
+    .btn-next:active, .btn-submit:active { transform: scale(0.95); }
+    .btn-submit { padding: 14px 32px; min-width: 160px; justify-content: center; }
+    .btn-submit:disabled { opacity: 0.7; cursor: not-allowed; transform: none; }
 
-    /* ── FEATURES ROW ── */
-    .features {
-      position: relative; z-index: 10;
-      padding: 80px 24px;
-      max-width: 900px; margin: 0 auto;
-    }
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 32px;
-    }
-    .feature {
-      text-align: center;
-      padding: 24px 16px;
-    }
-    .feature-num {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2.5rem; font-weight: 300;
-      color: rgba(212,175,103,0.2);
-      line-height: 1; margin-bottom: 12px;
-    }
-    .feature h4 {
-      font-size: 0.9rem; font-weight: 500;
-      color: var(--cream); margin-bottom: 8px;
-    }
-    .feature p {
-      font-size: 0.75rem; font-weight: 200;
-      color: var(--cream-faint); line-height: 1.7;
-    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .spinner { display: inline-block; width: 16px; height: 16px; border: 2px solid var(--void); border-top-color: transparent; border-radius: 50%; animation: spin 0.6s linear infinite; }
 
-    /* ── FOOTER ── */
-    footer {
-      position: relative; z-index: 10;
-      text-align: center; padding: 48px 24px;
-      border-top: 1px solid rgba(212,175,103,0.1);
+    /* Success */
+    .success-screen {
+      min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 80px 16px;
     }
-    footer p {
-      font-size: 0.7rem; color: var(--cream-faint);
-      letter-spacing: 0.05em;
+    .success-card {
+      max-width: 540px; width: 100%; text-align: center; padding: 32px;
+      border-radius: 24px; border: 1px solid rgba(179,161,78,0.2);
+      background: rgba(255,255,255,0.03); backdrop-filter: blur(10px);
     }
-    footer a { color: var(--gold); text-decoration: none; }
+    @media (min-width: 640px) { .success-card { padding: 48px; } }
+    .success-icon {
+      width: 80px; height: 80px; border-radius: 50%; margin: 0 auto 24px;
+      background: rgba(179,161,78,0.1); border: 2px solid rgba(179,161,78,0.3);
+      display: flex; align-items: center; justify-content: center; font-size: 2rem;
+    }
+    .success-card .tag {
+      color: var(--gold); font-size: 0.75rem; text-transform: uppercase;
+      letter-spacing: 0.3em; font-weight: 500; margin-bottom: 12px;
+    }
+    .success-card h1 {
+      font-family: 'Cormorant Garamond', serif; font-size: 2rem;
+      font-weight: 600; color: white; margin-bottom: 16px; line-height: 1.2;
+    }
+    .success-card .desc { color: #999; font-weight: 300; font-size: 1rem; line-height: 1.6; margin-bottom: 24px; }
+    .success-list {
+      background: rgba(255,255,255,0.03); border: 1px solid var(--white-5);
+      border-radius: 16px; padding: 24px; text-align: left; margin-bottom: 32px;
+    }
+    .success-list .item {
+      display: flex; align-items: flex-start; gap: 12px; font-size: 0.875rem;
+      color: #ccc; font-weight: 300; margin-bottom: 12px;
+    }
+    .success-list .item:last-child { margin-bottom: 0; }
+    .success-list .item .chk { color: var(--gold); flex-shrink: 0; margin-top: 2px; }
+    .success-card .note { color: #555; font-size: 0.75rem; font-weight: 300; }
 
-    /* ── RESPONSIVE ── */
-    @media (max-width: 768px) {
-      .box-container { transform: rotateX(10deg) rotateY(-10deg) scale(0.75); }
-      .float-card { width: 140px; }
-      .float-card.landed:nth-child(1) { transform: translate(-130px, 140px) rotate(-4deg) scale(1); }
-      .float-card.landed:nth-child(2) { transform: translate(0px, 160px) rotate(2deg) scale(1); }
-      .float-card.landed:nth-child(3) { transform: translate(130px, 145px) rotate(-1deg) scale(1); }
-      .float-card.landed:nth-child(4) { transform: translate(-70px, 280px) rotate(3deg) scale(1); }
-      .float-card.landed:nth-child(5) { transform: translate(70px, 290px) rotate(-2deg) scale(1); }
-      .display-grid { grid-template-columns: 1fr; }
-    }
+    /* Footer */
+    .footer { text-align: center; margin-top: 24px; font-size: 0.75rem; color: #555; font-weight: 300; }
+    .footer a { color: var(--gold); text-decoration: none; transition: color 0.2s; }
+    .footer a:hover { color: var(--gold-light); }
+
+    /* Animations */
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+    .animate { animation: fadeInUp 0.4s ease; }
+
+    /* Hidden */
+    .hidden { display: none !important; }
   </style>
 </head>
 <body>
-  <div class="grain"></div>
   <div class="glow"></div>
 
-  <!-- ═══════════════════════════════════════
-       HERO
-  ═══════════════════════════════════════ -->
-  <section class="hero">
-    <div class="hero-label">Brand in a Box</div>
-    <h1 class="serif">
-      Your entire brand.<br>
-      <span>In a box.</span>
-    </h1>
-    <p class="hero-sub">
-      Upload a few photos. Answer some questions about your business. In minutes, receive a complete brand identity - brand guide, colour palette, voice DNA, design system, 30 templates, and a logo suite. Everything you need. Nothing you don't.
+  <!-- SUCCESS SCREEN (hidden initially) -->
+  <div id="success" class="success-screen hidden">
+    <div class="success-card">
+      <div class="success-icon">&#10024;</div>
+      <p class="tag">You're in</p>
+      <h1 class="serif">Your brand is being built!</h1>
+      <p class="desc">Everything has been received. Kelly's AI is getting to work on your custom brand kit right now.</p>
+      <div class="success-list">
+        <div class="item"><span class="chk">&#10003;</span> Check your email for a confirmation and next steps</div>
+        <div class="item"><span class="chk">&#10003;</span> Your brand kit will be delivered within 24 hours</div>
+        <div class="item"><span class="chk">&#10003;</span> You will receive your brand guide, logos, templates, and colour palette</div>
+        <div class="item"><span class="chk">&#10003;</span> Questions? Email kelly@aiwithsoul.com.au</div>
+      </div>
+      <p class="note">Delivery within 24 hours - Monday to Friday.</p>
+    </div>
+  </div>
+
+  <!-- FORM -->
+  <div id="form-wrapper" class="container">
+    <!-- Header -->
+    <div class="header">
+      <p class="brand">Aligned &amp; Amplified</p>
+      <p class="subtitle">Brand in a Box</p>
+      <h1 class="serif">Let's Build Your Brand</h1>
+      <p>Included with your membership. Use it as many times as you like.</p>
+    </div>
+
+    <!-- Progress -->
+    <div class="progress">
+      <div class="progress-info">
+        <span class="step-label">Step <span id="step-num">1</span> of 5</span>
+        <span class="pct"><span id="step-pct">20</span>% complete</span>
+      </div>
+      <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width:20%"></div></div>
+      <div class="steps-dots" id="steps-dots"></div>
+    </div>
+
+    <!-- Card -->
+    <div class="card">
+      <form id="biab-form" novalidate>
+
+        <!-- STEP 1 -->
+        <div id="step-1" class="step-content animate">
+          <div class="section-header">
+            <h2 class="serif">About You</h2>
+            <p>Let's start with the basics.</p>
+          </div>
+          <div class="field">
+            <label class="field-label">Full name<span class="req">*</span></label>
+            <input type="text" id="fullName" placeholder="Your full name" autocomplete="name">
+            <div class="field-error hidden" id="err-fullName"></div>
+          </div>
+          <div class="field">
+            <label class="field-label">Email address<span class="req">*</span></label>
+            <input type="email" id="email" placeholder="you@yoursite.com" autocomplete="email">
+            <div class="field-error hidden" id="err-email"></div>
+          </div>
+          <div class="field">
+            <label class="field-label">Business name<span class="req">*</span></label>
+            <input type="text" id="businessName" placeholder="Your business or brand name">
+            <div class="field-error hidden" id="err-businessName"></div>
+          </div>
+          <div class="field">
+            <label class="field-label">What do you do?<span class="req">*</span></label>
+            <textarea id="whatYouDo" rows="4" placeholder="I help coaches and healers build profitable online businesses through..."></textarea>
+            <p class="field-hint">2-3 sentences. Who you help, what you do, and the transformation you offer.</p>
+            <div class="field-error hidden" id="err-whatYouDo"></div>
+          </div>
+          <div class="field">
+            <label class="field-label">Website URL</label>
+            <input type="url" id="websiteUrl" placeholder="https://yourwebsite.com">
+            <p class="field-hint">Optional - if you have one.</p>
+          </div>
+        </div>
+
+        <!-- STEP 2 -->
+        <div id="step-2" class="step-content hidden">
+          <div class="section-header">
+            <h2 class="serif">Your Audience</h2>
+            <p>Understanding your people is what makes your brand magnetic.</p>
+          </div>
+          <div class="field">
+            <label class="field-label">Who is your ideal client?<span class="req">*</span></label>
+            <textarea id="idealClient" rows="4" placeholder="Women in their 30s-40s who are transitioning careers, feeling unfulfilled, and know they are meant for more..."></textarea>
+            <p class="field-hint">Be specific - age range, lifestyle, what keeps them up at night.</p>
+            <div class="field-error hidden" id="err-idealClient"></div>
+          </div>
+          <div class="field">
+            <label class="field-label">What problem do you solve for them?<span class="req">*</span></label>
+            <textarea id="problemSolved" rows="4" placeholder="I help them move from burnout and confusion to clarity, confidence, and a business they love..."></textarea>
+            <p class="field-hint">Focus on the outcome and transformation, not just the method.</p>
+            <div class="field-error hidden" id="err-problemSolved"></div>
+          </div>
+          <div class="field">
+            <label class="field-label">What makes you different from others in your space?<span class="req">*</span></label>
+            <textarea id="differentiation" rows="4" placeholder="Unlike most coaches who focus on strategy, I combine neuroscience, somatic work, and business systems..."></textarea>
+            <p class="field-hint">Your unique approach, background, method, or perspective.</p>
+            <div class="field-error hidden" id="err-differentiation"></div>
+          </div>
+        </div>
+
+        <!-- STEP 3 -->
+        <div id="step-3" class="step-content hidden">
+          <div class="section-header">
+            <h2 class="serif">Your Brand Vibe</h2>
+            <p>This shapes the look, feel, and energy of everything we build.</p>
+          </div>
+
+          <!-- Vibe words -->
+          <div class="field">
+            <label class="field-label">Pick 3-5 words that describe how you want your brand to feel<span class="req">*</span></label>
+            <div class="pills" id="vibe-pills"></div>
+            <p class="field-hint"><span id="vibe-count">0</span>/5 selected</p>
+            <div class="field-error hidden" id="err-vibeWords"></div>
+          </div>
+
+          <!-- Archetype -->
+          <div class="field" style="margin-top:28px">
+            <label class="field-label">Your brand archetype<span class="req">*</span></label>
+            <div class="card-grid" id="archetype-grid"></div>
+            <p class="field-hint">Pick the one that feels most like you right now.</p>
+            <div class="field-error hidden" id="err-archetype"></div>
+          </div>
+
+          <!-- Logo style -->
+          <div class="field" style="margin-top:28px">
+            <label class="field-label">What logo style speaks to you?<span class="req">*</span></label>
+            <div class="card-grid" id="logo-grid"></div>
+            <p class="field-hint">Pick the style that best matches your brand energy.</p>
+            <div class="field-error hidden" id="err-logoStyle"></div>
+          </div>
+
+          <!-- Brand admiration -->
+          <div class="field" style="margin-top:28px">
+            <label class="field-label">Brands or accounts you admire<span class="req">*</span></label>
+            <textarea id="brandAdmiration" rows="3" placeholder="@_soulpractice - love the minimalist aesthetic and how grounded it feels. Also obsessed with the Glossier branding..."></textarea>
+            <p class="field-hint">Instagram handles, brand names, or websites. Tell us what you love about them.</p>
+            <div class="field-error hidden" id="err-brandAdmiration"></div>
+          </div>
+        </div>
+
+        <!-- STEP 4 -->
+        <div id="step-4" class="step-content hidden">
+          <div class="section-header">
+            <h2 class="serif">Your Images</h2>
+            <p>These are the raw ingredients your brand kit is built from.</p>
+          </div>
+
+          <!-- Inspiration images -->
+          <div class="field">
+            <label class="field-label">Mood and inspiration images<span class="req">*</span></label>
+            <div class="dropzone" id="dropzone">
+              <div class="upload-icon">&#8682;</div>
+              <p class="upload-text"><span class="highlight">Click to upload</span> or drag and drop</p>
+              <p class="upload-meta">Up to 5 images - max 10 MB each - JPG, PNG, WEBP</p>
+            </div>
+            <input type="file" id="file-input" accept="image/*" multiple style="display:none">
+            <div class="file-grid" id="file-grid"></div>
+            <p class="field-hint">Upload 3-5 images that capture the vibe, aesthetic, or energy you want your brand to have. Screenshots from Instagram are perfect.</p>
+            <div class="field-error hidden" id="err-inspirationImages"></div>
+          </div>
+
+          <!-- Brand photos -->
+          <div class="field" style="margin-top:28px">
+            <label class="field-label">Feature photos</label>
+            <div class="dropzone" id="brand-dropzone">
+              <div class="upload-icon">&#8682;</div>
+              <p class="upload-text"><span class="highlight">Click to upload</span> or drag and drop</p>
+              <p class="upload-meta">Up to 5 photos - max 10 MB each - JPG, PNG, WEBP</p>
+            </div>
+            <input type="file" id="brand-file-input" accept="image/*" multiple style="display:none">
+            <div class="file-grid" id="brand-file-grid"></div>
+            <p class="field-hint">Optional - upload up to 5 photos of yourself, your products, or your space. These get built into your brand guide and social media templates for a truly personalised look.</p>
+          </div>
+
+          <!-- Photo style -->
+          <div class="field" style="margin-top:28px">
+            <label class="field-label">Photo style preference<span class="req">*</span></label>
+            <div class="pills" id="photo-pills"></div>
+            <p class="field-hint">This shapes the overall aesthetic of your brand kit.</p>
+            <div class="field-error hidden" id="err-photoStyle"></div>
+          </div>
+        </div>
+
+        <!-- STEP 5 -->
+        <div id="step-5" class="step-content hidden">
+          <div class="section-header">
+            <h2 class="serif">Final Touches</h2>
+            <p>Almost done. Anything extra you want us to know.</p>
+          </div>
+          <div class="field">
+            <label class="field-label">Colours you love or hate<span class="req">*</span></label>
+            <textarea id="colourPreferences" rows="3" placeholder="Love: deep forest green, warm terracotta, soft gold. Hate: anything too corporate blue or harsh neon..."></textarea>
+            <p class="field-hint">Specific hex codes, shades, or just descriptions.</p>
+            <div class="field-error hidden" id="err-colourPreferences"></div>
+          </div>
+          <div class="field">
+            <label class="field-label">Anything else we should know?<span class="req">*</span></label>
+            <textarea id="anythingElse" rows="4" placeholder="I'm in the process of rebranding from XYZ to ABC... I want to avoid anything that looks too woo-woo even though I'm a healer..."></textarea>
+            <p class="field-hint">Any context, preferences, or details that will help us get this right.</p>
+            <div class="field-error hidden" id="err-anythingElse"></div>
+          </div>
+
+          <!-- Review -->
+          <div class="review" style="margin-top:24px">
+            <p class="review-label">Quick review</p>
+            <div class="review-grid" id="review-grid"></div>
+          </div>
+
+          <div id="submit-error" class="error-banner hidden">
+            <span class="icon">&#9888;</span>
+            <p id="submit-error-msg"></p>
+          </div>
+        </div>
+
+        <!-- Nav -->
+        <div class="nav-buttons" id="nav-buttons">
+          <button type="button" id="btn-back" class="btn-back hidden">&#8592; Back</button>
+          <button type="button" id="btn-next" class="btn-next">Continue &#8594;</button>
+          <button type="submit" id="btn-submit" class="btn-submit hidden">&#10024; Build My Brand</button>
+        </div>
+      </form>
+    </div>
+
+    <p class="footer">
+      Questions? Email <a href="mailto:kelly@aiwithsoul.com.au">kelly@aiwithsoul.com.au</a>
     </p>
-    <div class="scroll-cue">
-      <div class="line"></div>
-      Scroll to unbox
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════
-       3D BOX + FLOATING CARDS
-  ═══════════════════════════════════════ -->
-  <section class="box-scene" id="box-scene">
-    <div class="box-container" id="box">
-      <!-- Box faces -->
-      <div class="box-face box-front">
-        <div class="box-front-inner">
-          <div class="logo-text">Brand in a Box</div>
-          <div class="logo-sub">AI with Soul</div>
-        </div>
-      </div>
-      <div class="box-face box-back"></div>
-      <div class="box-face box-left"></div>
-      <div class="box-face box-right"></div>
-      <div class="box-face box-bottom"></div>
-      <div class="box-face box-lid" id="box-lid">
-        <div class="box-lid-inner">
-          <div class="stamp">Open me</div>
-        </div>
-      </div>
-
-      <!-- Floating artifact cards -->
-      <div class="float-cards" id="float-cards">
-        <div class="float-card" data-delay="0">
-          <img src="https://aiwithsoul.com.au/images/biab-demo-brand-guide.png" alt="Brand Guide">
-          <div class="card-label">Brand Guide</div>
-        </div>
-        <div class="float-card" data-delay="150">
-          <img src="https://aiwithsoul.com.au/images/biab-demo-colour-palette.png" alt="Colour Palette">
-          <div class="card-label">Colour Palette</div>
-        </div>
-        <div class="float-card" data-delay="300">
-          <img src="https://aiwithsoul.com.au/images/biab-demo-voice-guide.png" alt="Voice Guide">
-          <div class="card-label">Voice Guide</div>
-        </div>
-        <div class="float-card" data-delay="450">
-          <img src="https://aiwithsoul.com.au/images/biab-demo-design-system.png" alt="Design System">
-          <div class="card-label">Design System</div>
-        </div>
-        <div class="float-card" data-delay="600">
-          <img src="https://aiwithsoul.com.au/images/biab-demo-template-1.png" alt="Templates">
-          <div class="card-label">30 Templates</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <hr class="hr-gold">
-
-  <!-- ═══════════════════════════════════════
-       DISPLAY GRID - Landed artifacts
-  ═══════════════════════════════════════ -->
-  <section class="display-section">
-    <div class="section-label" style="margin-bottom:48px;">What's inside</div>
-    <div class="display-grid" id="display-grid">
-      <div class="display-card" data-delay="0">
-        <img src="https://aiwithsoul.com.au/images/biab-demo-brand-guide.png" alt="Brand Guide">
-        <div class="display-card-body">
-          <h3 class="serif">Brand Identity Guide</h3>
-          <p>Strategy, positioning, archetype, colours, typography, voice, logos - every detail of your brand in one premium document.</p>
-        </div>
-      </div>
-      <div class="display-card" data-delay="100">
-        <img src="https://aiwithsoul.com.au/images/biab-demo-colour-palette.png" alt="Colour Palette">
-        <div class="display-card-body">
-          <h3 class="serif">Colour Palette</h3>
-          <p>Six named colours extracted from YOUR mood images with hex codes, RGB, CMYK, and usage guidelines for every context.</p>
-        </div>
-      </div>
-      <div class="display-card" data-delay="200">
-        <img src="https://aiwithsoul.com.au/images/biab-demo-voice-guide.png" alt="Voice Guide">
-        <div class="display-card-body">
-          <h3 class="serif">Voice Guide</h3>
-          <p>Tone DNA, word banks, platform examples, and ready-to-post captions. Never wonder how you should sound again.</p>
-        </div>
-      </div>
-      <div class="display-card" data-delay="300">
-        <img src="https://aiwithsoul.com.au/images/biab-demo-design-system.png" alt="Design System">
-        <div class="display-card-body">
-          <h3 class="serif">Design System</h3>
-          <p>Typography, spacing, components, buttons, cards, responsive breakpoints - everything a developer needs to build your site.</p>
-        </div>
-      </div>
-      <div class="display-card" data-delay="400">
-        <img src="https://aiwithsoul.com.au/images/biab-demo-template-1.png" alt="Templates">
-        <div class="display-card-body">
-          <h3 class="serif">30 Custom Templates</h3>
-          <p>Photo-driven editorial designs with YOUR photos, YOUR colours, YOUR fonts. Instagram, Facebook, LinkedIn, email headers, business cards.</p>
-        </div>
-      </div>
-      <div class="display-card" data-delay="500">
-        <img src="https://aiwithsoul.com.au/images/biab-demo-template-4.png" alt="Logo Suite">
-        <div class="display-card-body">
-          <h3 class="serif">Logo Suite</h3>
-          <p>Five SVG logo variations - wordmark, icon mark, monogram, stacked, combined. Works from favicon to billboard.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <hr class="hr-gold">
-
-  <!-- ═══════════════════════════════════════
-       HOW IT WORKS
-  ═══════════════════════════════════════ -->
-  <section class="features">
-    <div class="section-label" style="margin-bottom:48px;">How it works</div>
-    <div class="features-grid">
-      <div class="feature">
-        <div class="feature-num">01</div>
-        <h4>Answer a few questions</h4>
-        <p>5 minutes. Your business, your audience, your vibe. Pick words that describe your brand energy.</p>
-      </div>
-      <div class="feature">
-        <div class="feature-num">02</div>
-        <h4>Upload your photos</h4>
-        <p>3-5 photos that represent you. Headshots, lifestyle, workspace. These become your hero images.</p>
-      </div>
-      <div class="feature">
-        <div class="feature-num">03</div>
-        <h4>Receive everything</h4>
-        <p>Brand guide, colour palette, voice guide, design system, 30 templates, logo suite. Minutes, not weeks.</p>
-      </div>
-    </div>
-  </section>
-
-  <hr class="hr-gold">
-
-  <!-- ═══════════════════════════════════════
-       CTA
-  ═══════════════════════════════════════ -->
-  <section class="cta-section">
-    <div class="section-label" style="margin-bottom:32px;">Get started</div>
-    <h2 class="serif">
-      Your brand identity.<br>
-      <span>Complete. Custom. Yours.</span>
-    </h2>
-    <p style="max-width:480px;margin:0 auto 24px;font-size:0.85rem;font-weight:200;color:var(--cream-dim);line-height:1.8;">
-      Not templates. Not generic. Built from YOUR answers, YOUR photos, YOUR personality. Two people could answer the same questions and get completely different brands.
-    </p>
-    <div class="price">$97</div>
-    <div class="price-note">One-time. No subscriptions. You own everything.</div>
-    <a href="https://buy.stripe.com/8x25kDeBSgjdeREeVTbQY0J" class="cta-btn">Get Your Brand Kit</a>
-  </section>
-
-  <footer>
-    <p style="margin-bottom:8px;">
-      Brand in a Box by <a href="https://aiwithsoul.com.au">AI with Soul</a>
-    </p>
-    <p>Questions? <a href="mailto:hello@aiwithsoul.com.au">hello@aiwithsoul.com.au</a></p>
-  </footer>
+  </div>
 
   <script>
-    // ── BOX LID OPEN + CARD FLOAT ANIMATION ──
-    const boxScene = document.getElementById('box-scene');
-    const boxLid = document.getElementById('box-lid');
-    const floatCards = document.querySelectorAll('.float-card');
-    let boxAnimated = false;
+    // -------------------------------------------------------------------------
+    // Config
+    // -------------------------------------------------------------------------
+    const SUPABASE_URL = 'https://jiquevvzrdavgqonvvug.supabase.co';
+    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImppcXVldnZ6cmRhdmdxb252dnVnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzE5NzIxNzIsImV4cCI6MjA4NzU0ODE3Mn0.e4mYjXj8TGTC0_UCm3QCKGSv8Cl-migIl7reYIKNcW4';
+    const BUCKET = 'biab-uploads';
+    const MAX_FILE_SIZE = 10 * 1024 * 1024;
 
-    const boxObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting && !boxAnimated) {
-          boxAnimated = true;
+    // -------------------------------------------------------------------------
+    // Static data
+    // -------------------------------------------------------------------------
+    const VIBE_WORDS = [
+      'Bold','Calm','Luxurious','Earthy','Playful','Professional',
+      'Spiritual','Edgy','Warm','Minimalist','Vibrant','Elegant',
+      'Raw','Modern','Nurturing','Powerful'
+    ];
+    const ARCHETYPES = [
+      { name:'Healer', desc:'Guides others back to wholeness and inner peace', emoji:'\u2728' },
+      { name:'Guide', desc:'Leads with clarity, showing others the path forward', emoji:'\uD83E\uDDED' },
+      { name:'Rebel', desc:'Challenges the status quo and rewrites the rules', emoji:'\u26A1' },
+      { name:'Creator', desc:'Brings beauty and original ideas into the world', emoji:'\uD83C\uDFA8' },
+      { name:'Sage', desc:'Shares deep wisdom and knowledge with authority', emoji:'\uD83D\uDCD6' },
+      { name:'Nurturer', desc:'Holds space and cares deeply for others growth', emoji:'\uD83C\uDF31' },
+      { name:'Leader', desc:'Inspires action and drives powerful transformation', emoji:'\uD83D\uDC51' },
+      { name:'Adventurer', desc:'Embraces the unknown and inspires bold action', emoji:'\uD83C\uDF0A' },
+    ];
+    const LOGO_STYLES = [
+      { name:'Minimalist', desc:'Clean lines, simple shapes, lots of whitespace' },
+      { name:'Hand-drawn', desc:'Organic, artistic, imperfect on purpose' },
+      { name:'Bold geometric', desc:'Strong shapes, confident, modern impact' },
+      { name:'Fine line', desc:'Delicate, detailed, elegant linework' },
+      { name:'Sacred geometry', desc:'Mandalas, flower of life, spiritual patterns' },
+      { name:'Organic', desc:'Nature-inspired, flowing, earthy textures' },
+      { name:'Modern sans', desc:'Clean typography, contemporary, professional' },
+      { name:'Vintage', desc:'Retro charm, hand-lettered, timeless feel' },
+    ];
+    const PHOTO_STYLES = ['Professional','Creative','Lifestyle','Wellness','Bold'];
+    const STEP_NAMES = ['About You','Your Audience','Brand Vibe','Your Images','Final Touches'];
 
-          // Open lid
-          setTimeout(() => {
-            boxLid.classList.add('open');
-          }, 400);
+    // -------------------------------------------------------------------------
+    // State
+    // -------------------------------------------------------------------------
+    let currentStep = 1;
+    let vibeWords = [];
+    let archetype = '';
+    let logoStyle = '';
+    let photoStyle = '';
+    let files = [];
+    let brandPhotoFiles = [];
+    let submitting = false;
 
-          // Float cards out with staggered delays
-          floatCards.forEach((card, i) => {
-            const delay = parseInt(card.dataset.delay) + 900;
-            setTimeout(() => {
-              card.classList.add('landed');
-            }, delay);
-          });
+    // -------------------------------------------------------------------------
+    // DOM refs
+    // -------------------------------------------------------------------------
+    const $ = (id) => document.getElementById(id);
+    const val = (id) => ($(id)?.value || '').trim();
+
+    // -------------------------------------------------------------------------
+    // Init
+    // -------------------------------------------------------------------------
+    function init() {
+      renderStepDots();
+      renderVibePills();
+      renderArchetypes();
+      renderLogoStyles();
+      renderPhotoStyles();
+      setupDropzone();
+      setupBrandDropzone();
+
+      $('btn-next').addEventListener('click', handleNext);
+      $('btn-back').addEventListener('click', handleBack);
+      $('biab-form').addEventListener('submit', handleSubmit);
+    }
+
+    // -------------------------------------------------------------------------
+    // Render helpers
+    // -------------------------------------------------------------------------
+    function renderStepDots() {
+      const container = $('steps-dots');
+      container.innerHTML = STEP_NAMES.map((name, i) => {
+        const n = i + 1;
+        const cls = n < currentStep ? 'done' : n === currentStep ? 'current' : 'future';
+        const nameCls = n === currentStep ? 'active' : 'inactive';
+        const inner = n < currentStep ? '&#10003;' : n;
+        return `<div class="step-dot"><div class="step-circle ${cls}">${inner}</div><span class="step-name ${nameCls}">${name}</span></div>`;
+      }).join('');
+    }
+
+    function renderVibePills() {
+      const container = $('vibe-pills');
+      container.innerHTML = VIBE_WORDS.map(w => {
+        const sel = vibeWords.includes(w);
+        const maxed = vibeWords.length >= 5 && !sel;
+        let cls = 'pill';
+        if (sel) cls += ' selected';
+        if (maxed) cls += ' disabled';
+        return `<div class="${cls}" data-word="${w}">${w}</div>`;
+      }).join('');
+
+      container.querySelectorAll('.pill').forEach(el => {
+        el.addEventListener('click', () => {
+          const w = el.dataset.word;
+          if (vibeWords.includes(w)) {
+            vibeWords = vibeWords.filter(x => x !== w);
+          } else if (vibeWords.length < 5) {
+            vibeWords.push(w);
+          }
+          renderVibePills();
+          clearError('vibeWords');
+        });
+      });
+
+      $('vibe-count').textContent = vibeWords.length;
+    }
+
+    function renderArchetypes() {
+      const container = $('archetype-grid');
+      container.innerHTML = ARCHETYPES.map(a => {
+        const sel = archetype === a.name;
+        return `<div class="selector-card${sel?' selected':''}" data-name="${a.name}">
+          <span class="emoji">${a.emoji}</span>
+          <div><p class="card-name">${a.name}</p><p class="card-desc">${a.desc}</p></div>
+          ${sel ? '<span class="check">&#10003;</span>' : ''}
+        </div>`;
+      }).join('');
+
+      container.querySelectorAll('.selector-card').forEach(el => {
+        el.addEventListener('click', () => {
+          archetype = el.dataset.name;
+          renderArchetypes();
+          clearError('archetype');
+        });
+      });
+    }
+
+    function renderLogoStyles() {
+      const container = $('logo-grid');
+      container.innerHTML = LOGO_STYLES.map(ls => {
+        const sel = logoStyle === ls.name;
+        return `<div class="selector-card${sel?' selected':''}" data-name="${ls.name}">
+          <div><p class="card-name">${ls.name}</p><p class="card-desc">${ls.desc}</p></div>
+          ${sel ? '<span class="check">&#10003;</span>' : ''}
+        </div>`;
+      }).join('');
+
+      container.querySelectorAll('.selector-card').forEach(el => {
+        el.addEventListener('click', () => {
+          logoStyle = el.dataset.name;
+          renderLogoStyles();
+          clearError('logoStyle');
+        });
+      });
+    }
+
+    function renderPhotoStyles() {
+      const container = $('photo-pills');
+      container.innerHTML = PHOTO_STYLES.map(s => {
+        const sel = photoStyle === s;
+        return `<div class="pill${sel?' selected':''}" data-style="${s}">${s}</div>`;
+      }).join('');
+
+      container.querySelectorAll('.pill').forEach(el => {
+        el.addEventListener('click', () => {
+          photoStyle = el.dataset.style;
+          renderPhotoStyles();
+          clearError('photoStyle');
+        });
+      });
+    }
+
+    function renderFiles() {
+      const grid = $('file-grid');
+      grid.innerHTML = files.map((f, i) => {
+        const url = URL.createObjectURL(f);
+        return `<div class="file-thumb">
+          <img src="${url}" alt="Upload ${i+1}">
+          <div class="remove" data-idx="${i}">&times;</div>
+          <div class="fname">${f.name}</div>
+        </div>`;
+      }).join('');
+
+      grid.querySelectorAll('.remove').forEach(el => {
+        el.addEventListener('click', (e) => {
+          e.stopPropagation();
+          files.splice(parseInt(el.dataset.idx), 1);
+          renderFiles();
+          updateDropzoneText();
+        });
+      });
+    }
+
+    function updateDropzoneText() {
+      const dz = $('dropzone');
+      const txt = dz.querySelector('.upload-text');
+      if (files.length >= 5) {
+        txt.innerHTML = 'Maximum 5 files uploaded';
+      } else {
+        txt.innerHTML = '<span class="highlight">Click to upload</span> or drag and drop';
+      }
+    }
+
+    function renderReview() {
+      const grid = $('review-grid');
+      grid.innerHTML = [
+        ['Name', val('fullName')],
+        ['Business', val('businessName')],
+        ['Archetype', archetype || '-'],
+        ['Logo style', logoStyle || '-'],
+        ['Vibe words', vibeWords.join(', ') || '-'],
+        ['Inspiration images', files.length + ' uploaded'],
+        ['Feature photos', brandPhotoFiles.length > 0 ? brandPhotoFiles.length + ' uploaded' : 'None'],
+        ['Photo style', photoStyle || '-'],
+      ].map(([k, v]) => `<div><p class="rk">${k}</p><p class="rv">${v}</p></div>`).join('');
+    }
+
+    // -------------------------------------------------------------------------
+    // Dropzone
+    // -------------------------------------------------------------------------
+    function setupDropzone() {
+      const dz = $('dropzone');
+      const input = $('file-input');
+
+      dz.addEventListener('click', () => { if (files.length < 5) input.click(); });
+      dz.addEventListener('dragover', (e) => { e.preventDefault(); dz.classList.add('dragging'); });
+      dz.addEventListener('dragleave', () => dz.classList.remove('dragging'));
+      dz.addEventListener('drop', (e) => {
+        e.preventDefault();
+        dz.classList.remove('dragging');
+        addFiles(e.dataTransfer.files);
+      });
+
+      input.addEventListener('change', (e) => {
+        addFiles(e.target.files);
+        input.value = '';
+      });
+    }
+
+    function addFiles(fileList) {
+      const remaining = 5 - files.length;
+      Array.from(fileList).slice(0, remaining).forEach(f => {
+        if (!f.type.startsWith('image/')) {
+          alert(f.name + ' is not an image and was skipped.');
+        } else if (f.size > MAX_FILE_SIZE) {
+          alert(f.name + ' is over 10 MB and was skipped.');
+        } else {
+          files.push(f);
         }
       });
-    }, { threshold: 0.4 });
+      renderFiles();
+      updateDropzoneText();
+      clearError('inspirationImages');
+    }
 
-    boxObserver.observe(boxScene);
+    // -------------------------------------------------------------------------
+    // Brand Photos Dropzone
+    // -------------------------------------------------------------------------
+    function setupBrandDropzone() {
+      const dz = $('brand-dropzone');
+      const input = $('brand-file-input');
 
-    // ── DISPLAY CARDS SCROLL REVEAL ──
-    const displayCards = document.querySelectorAll('.display-card');
-    const displayObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const delay = parseInt(entry.target.dataset.delay) || 0;
-          setTimeout(() => {
-            entry.target.classList.add('visible');
-          }, delay);
-          displayObserver.unobserve(entry.target);
+      dz.addEventListener('click', () => { if (brandPhotoFiles.length < 5) input.click(); });
+      dz.addEventListener('dragover', (e) => { e.preventDefault(); dz.classList.add('dragging'); });
+      dz.addEventListener('dragleave', () => dz.classList.remove('dragging'));
+      dz.addEventListener('drop', (e) => {
+        e.preventDefault();
+        dz.classList.remove('dragging');
+        addBrandFiles(e.dataTransfer.files);
+      });
+
+      input.addEventListener('change', (e) => {
+        addBrandFiles(e.target.files);
+        input.value = '';
+      });
+    }
+
+    function addBrandFiles(fileList) {
+      const remaining = 5 - brandPhotoFiles.length;
+      Array.from(fileList).slice(0, remaining).forEach(f => {
+        if (!f.type.startsWith('image/')) {
+          alert(f.name + ' is not an image and was skipped.');
+        } else if (f.size > MAX_FILE_SIZE) {
+          alert(f.name + ' is over 10 MB and was skipped.');
+        } else {
+          brandPhotoFiles.push(f);
         }
       });
-    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+      renderBrandFiles();
+      updateBrandDropzoneText();
+    }
 
-    displayCards.forEach(card => displayObserver.observe(card));
+    function renderBrandFiles() {
+      const grid = $('brand-file-grid');
+      grid.innerHTML = brandPhotoFiles.map((f, i) => {
+        const url = URL.createObjectURL(f);
+        return `<div class="file-thumb">
+          <img src="${url}" alt="Photo ${i+1}">
+          <div class="remove" data-idx="${i}">&times;</div>
+          <div class="fname">${f.name}</div>
+        </div>`;
+      }).join('');
+
+      grid.querySelectorAll('.remove').forEach(el => {
+        el.addEventListener('click', (e) => {
+          e.stopPropagation();
+          brandPhotoFiles.splice(parseInt(el.dataset.idx), 1);
+          renderBrandFiles();
+          updateBrandDropzoneText();
+        });
+      });
+    }
+
+    function updateBrandDropzoneText() {
+      const dz = $('brand-dropzone');
+      const txt = dz.querySelector('.upload-text');
+      if (brandPhotoFiles.length >= 5) {
+        txt.innerHTML = 'Maximum 5 photos uploaded';
+      } else {
+        txt.innerHTML = '<span class="highlight">Click to upload</span> or drag and drop';
+      }
+    }
+
+    // -------------------------------------------------------------------------
+    // Navigation
+    // -------------------------------------------------------------------------
+    function updateUI() {
+      for (let i = 1; i <= 5; i++) {
+        $('step-' + i).classList.toggle('hidden', i !== currentStep);
+      }
+      if (currentStep !== 1) $('step-' + currentStep).classList.add('animate');
+
+      $('step-num').textContent = currentStep;
+      const pct = Math.round((currentStep / 5) * 100);
+      $('step-pct').textContent = pct;
+      $('progress-fill').style.width = pct + '%';
+
+      $('btn-back').classList.toggle('hidden', currentStep === 1);
+      $('btn-next').classList.toggle('hidden', currentStep === 5);
+      $('btn-submit').classList.toggle('hidden', currentStep !== 5);
+      $('nav-buttons').classList.toggle('has-back', currentStep > 1);
+
+      renderStepDots();
+
+      if (currentStep === 5) renderReview();
+    }
+
+    function handleNext() {
+      if (validate()) {
+        currentStep++;
+        updateUI();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
+
+    function handleBack() {
+      currentStep--;
+      updateUI();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // -------------------------------------------------------------------------
+    // Validation
+    // -------------------------------------------------------------------------
+    function showError(field, msg) {
+      const el = $('err-' + field);
+      if (el) { el.textContent = msg; el.classList.remove('hidden'); }
+    }
+
+    function clearError(field) {
+      const el = $('err-' + field);
+      if (el) el.classList.add('hidden');
+    }
+
+    function clearAllErrors() {
+      document.querySelectorAll('.field-error').forEach(el => el.classList.add('hidden'));
+    }
+
+    function validate() {
+      clearAllErrors();
+      let valid = true;
+
+      if (currentStep === 1) {
+        if (!val('fullName')) { showError('fullName', 'Your name is required'); valid = false; }
+        const em = val('email');
+        if (!em || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)) { showError('email', 'A valid email is required'); valid = false; }
+        if (!val('businessName')) { showError('businessName', 'Business name is required'); valid = false; }
+        if (!val('whatYouDo')) { showError('whatYouDo', 'Please describe what you do'); valid = false; }
+      }
+
+      if (currentStep === 2) {
+        if (!val('idealClient')) { showError('idealClient', 'Please describe your ideal client'); valid = false; }
+        if (!val('problemSolved')) { showError('problemSolved', 'Please describe the problem you solve'); valid = false; }
+        if (!val('differentiation')) { showError('differentiation', 'Please describe what makes you different'); valid = false; }
+      }
+
+      if (currentStep === 3) {
+        if (vibeWords.length < 3) { showError('vibeWords', 'Pick at least 3 words (up to 5)'); valid = false; }
+        if (!archetype) { showError('archetype', 'Please pick your brand archetype'); valid = false; }
+        if (!logoStyle) { showError('logoStyle', 'Please choose a logo style'); valid = false; }
+        if (!val('brandAdmiration')) { showError('brandAdmiration', 'Tell us which brands you admire and why'); valid = false; }
+      }
+
+      if (currentStep === 4) {
+        if (files.length < 3) { showError('inspirationImages', 'Upload at least 3 inspiration images'); valid = false; }
+        if (!photoStyle) { showError('photoStyle', 'Please choose a photo style'); valid = false; }
+      }
+
+      if (currentStep === 5) {
+        if (!val('colourPreferences')) { showError('colourPreferences', 'Tell us about any colour preferences'); valid = false; }
+      }
+
+      if (!valid) {
+        const firstErr = document.querySelector('.field-error:not(.hidden)');
+        if (firstErr) firstErr.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+      return valid;
+    }
+
+    // -------------------------------------------------------------------------
+    // Upload to Supabase Storage
+    // -------------------------------------------------------------------------
+    async function uploadFile(file, folder) {
+      const ext = file.name.split('.').pop() || 'bin';
+      const fileName = folder + '/' + Date.now() + '-' + Math.random().toString(36).slice(2) + '.' + ext;
+
+      const res = await fetch(SUPABASE_URL + '/storage/v1/object/' + BUCKET + '/' + fileName, {
+        method: 'POST',
+        headers: {
+          'Authorization': 'Bearer ' + SUPABASE_ANON_KEY,
+          'Content-Type': file.type,
+          'x-upsert': 'false',
+        },
+        body: file,
+      });
+
+      if (!res.ok) {
+        const err = await res.text();
+        throw new Error('Upload failed: ' + err);
+      }
+
+      return SUPABASE_URL + '/storage/v1/object/public/' + BUCKET + '/' + fileName;
+    }
+
+    // -------------------------------------------------------------------------
+    // Submit
+    // -------------------------------------------------------------------------
+    async function handleSubmit(e) {
+      e.preventDefault();
+      if (!validate() || submitting) return;
+
+      submitting = true;
+      const btn = $('btn-submit');
+      btn.disabled = true;
+      btn.innerHTML = '<span class="spinner"></span> Uploading...';
+
+      try {
+        const folder = Date.now() + '-' + val('email').replace(/[^a-z0-9]/gi, '_');
+
+        // Upload inspiration images
+        const totalUploads = files.length + brandPhotoFiles.length;
+        let uploadCount = 0;
+        const inspirationUrls = [];
+        for (let i = 0; i < files.length; i++) {
+          uploadCount++;
+          btn.innerHTML = '<span class="spinner"></span> Uploading image ' + uploadCount + ' of ' + totalUploads + '...';
+          const url = await uploadFile(files[i], folder + '/inspiration');
+          inspirationUrls.push(url);
+        }
+
+        // Upload brand photos
+        const brandPhotoUrls = [];
+        for (let i = 0; i < brandPhotoFiles.length; i++) {
+          uploadCount++;
+          btn.innerHTML = '<span class="spinner"></span> Uploading image ' + uploadCount + ' of ' + totalUploads + '...';
+          const url = await uploadFile(brandPhotoFiles[i], folder + '/brand-photos');
+          brandPhotoUrls.push(url);
+        }
+
+        btn.innerHTML = '<span class="spinner"></span> Saving...';
+
+        const payload = {
+          source: 'aa-member',
+          submitted_at: new Date().toISOString(),
+          full_name: val('fullName'),
+          email: val('email'),
+          business_name: val('businessName'),
+          what_you_do: val('whatYouDo'),
+          website_url: val('websiteUrl') || null,
+          ideal_client: val('idealClient'),
+          problem_solved: val('problemSolved'),
+          differentiation: val('differentiation'),
+          vibe_words: vibeWords,
+          archetype: archetype,
+          logo_style: logoStyle,
+          brand_admiration: val('brandAdmiration') || null,
+          inspiration_image_urls: inspirationUrls,
+          brand_photo_urls: brandPhotoUrls,
+          photo_style: photoStyle,
+          colour_preferences: val('colourPreferences') || null,
+          anything_else: val('anythingElse') || null,
+        };
+
+        const orderRes = await fetch(SUPABASE_URL + '/rest/v1/biab_orders', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'apikey': SUPABASE_ANON_KEY,
+            'Authorization': 'Bearer ' + SUPABASE_ANON_KEY,
+            'Prefer': 'return=representation',
+          },
+          body: JSON.stringify({
+            customer_email: val('email'),
+            customer_name: val('fullName'),
+            business_name: val('businessName'),
+            status: 'ready',
+            questionnaire_data: payload,
+            upload_paths: { inspiration: inspirationUrls, brand_photos: brandPhotoUrls },
+          }),
+        });
+
+        if (!orderRes.ok) {
+          const errBody = await orderRes.text();
+          console.error('[BIAB] Insert failed:', errBody);
+          throw new Error('Failed to save questionnaire');
+        }
+
+        // Show success
+        $('form-wrapper').classList.add('hidden');
+        $('success').classList.remove('hidden');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+
+      } catch (err) {
+        console.error('[BIAB] Submit error:', err);
+        $('submit-error').classList.remove('hidden');
+        $('submit-error-msg').textContent = 'Something went wrong uploading your files. Please try again or email kelly@aiwithsoul.com.au';
+        $('submit-error').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        btn.disabled = false;
+        btn.innerHTML = '&#10024; Build My Brand';
+      } finally {
+        submitting = false;
+      }
+    }
+
+    // -------------------------------------------------------------------------
+    // Boot
+    // -------------------------------------------------------------------------
+    document.addEventListener('DOMContentLoaded', init);
+    updateUI();
   </script>
 </body>
 </html>

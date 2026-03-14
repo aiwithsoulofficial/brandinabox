@@ -1267,103 +1267,7 @@
             }
         }
     
-/* Unbox Animation */
-.unbox-container {
-  position: relative;
-  width: 320px;
-  height: 320px;
-  margin: 2rem auto;
-}
-.unbox-box-wrap {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  z-index: 2;
-}
-.unbox-box-wrap img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-.unbox-closed { position: relative; }
-.unbox-open { position: absolute; top: 0; left: 0; opacity: 0; }
-.unbox-cards {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 280px;
-  height: 200px;
-  z-index: 3;
-}
-.unbox-card {
-  position: absolute;
-  background: rgba(255,255,255,0.95);
-  border-radius: 8px;
-  padding: 8px 14px;
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: #1a1a2e;
-  white-space: nowrap;
-  opacity: 0;
-  transform: scale(0.7);
-  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-  left: 50%;
-  top: 50%;
-}
-.unbox-playing .unbox-closed { animation: boxClose 8s infinite; }
-.unbox-playing .unbox-open { animation: boxOpen 8s infinite; }
-.unbox-playing .unbox-card { animation-duration: 8s; animation-iteration-count: infinite; }
-.unbox-playing .unbox-card:nth-child(1) { animation-name: card1; }
-.unbox-playing .unbox-card:nth-child(2) { animation-name: card2; }
-.unbox-playing .unbox-card:nth-child(3) { animation-name: card3; }
-.unbox-playing .unbox-card:nth-child(4) { animation-name: card4; }
-.unbox-playing .unbox-card:nth-child(5) { animation-name: card5; }
 
-@keyframes boxClose {
-  0%, 10% { opacity: 1; }
-  15%, 75% { opacity: 0; }
-  80%, 100% { opacity: 1; }
-}
-@keyframes boxOpen {
-  0%, 10% { opacity: 0; }
-  15%, 75% { opacity: 1; }
-  80%, 100% { opacity: 0; }
-}
-@keyframes card1 {
-  0%, 15% { opacity: 0; transform: scale(0.7) translate(-50%, -50%); }
-  20% { opacity: 1; transform: scale(0.7) translate(-50%, -50%); }
-  30%, 65% { opacity: 1; transform: scale(1) translate(-180px, -130px); }
-  70%, 100% { opacity: 0; transform: scale(1) translate(-180px, -130px); }
-}
-@keyframes card2 {
-  0%, 17% { opacity: 0; transform: scale(0.7) translate(-50%, -50%); }
-  22% { opacity: 1; transform: scale(0.7) translate(-50%, -50%); }
-  32%, 65% { opacity: 1; transform: scale(1) translate(40px, -140px); }
-  70%, 100% { opacity: 0; transform: scale(1) translate(40px, -140px); }
-}
-@keyframes card3 {
-  0%, 19% { opacity: 0; transform: scale(0.7) translate(-50%, -50%); }
-  24% { opacity: 1; transform: scale(0.7) translate(-50%, -50%); }
-  34%, 65% { opacity: 1; transform: scale(1) translate(-200px, -115px); }
-  70%, 100% { opacity: 0; transform: scale(1) translate(-200px, -115px); }
-}
-@keyframes card4 {
-  0%, 21% { opacity: 0; transform: scale(0.7) translate(-50%, -50%); }
-  26% { opacity: 1; transform: scale(0.7) translate(-50%, -50%); }
-  36%, 65% { opacity: 1; transform: scale(1) translate(60px, -120px); }
-  70%, 100% { opacity: 0; transform: scale(1) translate(60px, -120px); }
-}
-@keyframes card5 {
-  0%, 23% { opacity: 0; transform: scale(0.7) translate(-50%, -50%); }
-  28% { opacity: 1; transform: scale(0.7) translate(-50%, -50%); }
-  38%, 65% { opacity: 1; transform: scale(1) translate(-100px, -145px); }
-  70%, 100% { opacity: 0; transform: scale(1) translate(-100px, -145px); }
-}
-@media (max-width: 768px) {
-  .unbox-container { width: 240px; height: 240px; }
-  .unbox-cards { transform: translate(-50%, -50%) scale(0.7); }
-}
 
     </style>
 </head>
@@ -1389,26 +1293,12 @@
             <div class="hero-grid">
                 <div class="hero-content">
                     <span class="hero-eyebrow">BRAND IN A BOX</span>
-                    <h1 class="hero-headline">The Creator Economy Just Hit $250 Billion</h1>
+                    <h1 class="hero-headline">Your Complete Brand Identity - Built From Your Photos</h1>
                     
-            <div class="unbox-container unbox-playing">
-              <div class="unbox-cards">
-                <div class="unbox-card">Brand Guide</div>
-                <div class="unbox-card">Colour Palette</div>
-                <div class="unbox-card">Voice Guide</div>
-                <div class="unbox-card">30 Designs</div>
-                <div class="unbox-card">Logo Suite</div>
-              </div>
-              <div class="unbox-box-wrap">
-                <img src="https://aiwithsoul.com.au/images/biab-box-render-1.png" alt="Brand in a Box" class="unbox-closed">
-                <img src="https://aiwithsoul.com.au/images/biab-box-open-2.png" alt="Brand in a Box - open" class="unbox-open">
-              </div>
-            </div>
-
-                    <p class="hero-subheadline">And now you can claim your share with a complete brand identity built in 90 minutes - without hiring a $5,000 strategist. If you've been stuck trying to nail your positioning, write your bio, or figure out what to post about, you could have 50+ branded assets ready to deploy by this afternoon.</p>
+                    <p class="hero-subheadline">You give us a few photos and answer a short questionnaire. We give you a complete brand identity - brand guide, colour palette, voice guide, design system, 30 custom designs, and a logo suite. Delivered in minutes, not weeks. No designers. No agencies. No back-and-forth.</p>
                     <div class="hero-image">
-                        <img src="bundle-pack.png" alt="Brand in a Box bundle pack with bios, content angle ideas, positioning framework, and brand voice guide">
-                        <div class="hero-image-badge">50+ Assets in 90 Minutes</div>
+                        <img src="biab-hero.png" alt="Brand in a Box - complete brand identity kit">
+                        <div class="hero-image-badge">Complete Brand Kit</div>
                     </div>
                 </div>
                 
@@ -1428,13 +1318,13 @@
                     </a>
                     
                     <ul class="purchase-box-features">
-                        <li><span class="check">✓</span> 25 Platform-Optimized Bio Variations</li>
-                        <li><span class="check">✓</span> 30 Strategic Content Angle Ideas</li>
-                        <li><span class="check">✓</span> Complete Positioning Framework</li>
-                        <li><span class="check">✓</span> Comprehensive Brand Voice Guide</li>
-                        <li><span class="check">✓</span> Messaging Matrix (All Scenarios)</li>
-                        <li><span class="check">✓</span> Platform-Specific Adaptation Guide</li>
-                        <li><span class="check">✓</span> 90-Minute AI Strategy Session</li>
+                        <li><span class="check">✓</span> Brand Identity Guide (strategy, positioning, archetype)</li>
+                        <li><span class="check">✓</span> Colour Palette (6 colours from YOUR photos)</li>
+                        <li><span class="check">✓</span> Voice Guide (tone DNA, word banks, captions)</li>
+                        <li><span class="check">✓</span> Design System (typography, spacing, components)</li>
+                        <li><span class="check">✓</span> 30 Custom Designs (Instagram, LinkedIn, Facebook, email)</li>
+                        <li><span class="check">✓</span> Logo Suite (5 SVG variations)</li>
+                        <li><span class="check">✓</span> 3 generation runs included</li>
                     </ul>
                     
                     <div class="guarantee-badge">
@@ -1461,8 +1351,8 @@
     <section class="stats-section">
         <div class="container">
             <div class="stats-intro">
-                <p><strong>According to recent data, entrepreneurs spend an average of 47 hours trying to create consistent brand messaging across platforms</strong> - and most still end up with mismatched bios and unclear positioning. Meanwhile, brands that invest in professional strategy pay $2,000-$5,000 and wait 4-6 weeks for deliverables.</p>
-                <p>The 2025 AI-powered brand strategy tools have made complete brand identity accessible to everyone. Solopreneurs with zero brand experience are launching with crystal-clear positioning and professional assets from day one. <strong>This opportunity won't last at this price.</strong></p>
+                <p><strong>Professional brand identity packages cost $2,000-$5,000 and take 4-6 weeks.</strong> Freelance designers charge $500+ for a logo alone. DIY tools like Canva leave you with generic templates that look like everyone else.</p>
+                <p>Brand in a Box uses AI to generate a <strong>complete, custom brand identity from your own photos</strong> - colours extracted from your images, designs built around your aesthetic, voice crafted from your answers. Everything you need to show up consistently and professionally. <strong>For $97. Delivered in minutes.</strong></p>
             </div>
         </div>
     </section>
@@ -1470,28 +1360,28 @@
     <!-- PAIN POINTS SECTION -->
     <section class="pain-section">
         <div class="container text-center">
-            <h2>Anyone can build a complete brand identity<br>(even if you have zero design or strategy experience!)</h2>
-            <p class="subtitle">Creating 50+ branded assets in 90 minutes requires NO:</p>
+            <h2>Everything you need to look like you hired a brand agency</h2>
+            <p class="subtitle">Brand in a Box requires NO:</p>
             <div class="pain-cards">
                 <div class="pain-card">
                     <div class="pain-card-icon">💰</div>
                     <h3>Expensive Brand Strategist</h3>
-                    <p>Save $2,000-$5,000 on professional strategist fees.</p>
+                    <p>We handle strategy, colours, typography, voice, and design.</p>
                 </div>
                 <div class="pain-card">
                     <div class="pain-card-icon">🎨</div>
                     <h3>Design Experience or Skills</h3>
-                    <p>No creative background needed whatsoever.</p>
+                    <p>Upload your photos. Answer a few questions. Done.</p>
                 </div>
                 <div class="pain-card">
                     <div class="pain-card-icon">📅</div>
                     <h3>Weeks of Back-and-Forth Revisions</h3>
-                    <p>Get everything done in one focused session.</p>
+                    <p>Delivered in minutes after you submit your questionnaire.</p>
                 </div>
                 <div class="pain-card">
                     <div class="pain-card-icon">⚙️</div>
                     <h3>Complicated Software or Tools</h3>
-                    <p>Simple AI-powered conversation creates everything.</p>
+                    <p>A short questionnaire and your photos are all we need.</p>
                 </div>
                 <div class="pain-card">
                     <div class="pain-card-icon">👥</div>
@@ -1516,18 +1406,18 @@
             <div class="how-steps">
                 <div class="how-step">
                     <div class="how-step-number">1</div>
-                    <h3>Answer Strategic Questions</h3>
-                    <p>Enter the AI-powered brand strategy session that asks targeted questions about your business, audience, and goals. The system guides you through proven frameworks used by $5K/day brand strategists.</p>
+                    <h3>Answer a Short Questionnaire</h3>
+                    <p>5 minutes. Tell us about your business, your audience, and how you want your brand to feel. Upload 3-5 photos that represent you - headshots, lifestyle, workspace.</p>
                 </div>
                 <div class="how-step">
                     <div class="how-step-number">2</div>
-                    <h3>Generate Your Assets</h3>
-                    <p>Watch as the AI instantly creates 25 bio variations optimized for every platform, 30 content angle ideas, your complete positioning framework, and a comprehensive brand voice guide.</p>
+                    <h3>We Build Your Brand</h3>
+                    <p>Our AI generates your complete brand identity - colours extracted from your photos, typography paired to your aesthetic, voice crafted from your answers, 30 photo-driven designs using YOUR images.</p>
                 </div>
                 <div class="how-step">
                     <div class="how-step-number">3</div>
-                    <h3>Deploy Everywhere</h3>
-                    <p>Walk away with an organized document containing everything you need to present a consistent, professional brand - from your social profiles to your website, email signature, and content calendar.</p>
+                    <h3>Download Everything</h3>
+                    <p>Brand guide, colour palette, voice guide, design system, 30 ready-to-post designs (HTML + PNG), and 5 logo variations. Download your ZIP and start using them immediately.</p>
                 </div>
             </div>
         </div>
@@ -1537,7 +1427,7 @@
     <section class="solution-section">
         <div class="container">
             <div class="solution-intro">
-                <h2>Why complete brand identity matters right now</h2>
+                <h2>Why a complete brand identity matters</h2>
                 <p>Brands with consistent presentation across all platforms experience an average revenue increase of 33%, according to Lucidpress. Meanwhile, 64% of consumers cite "shared values" as the primary reason they have a relationship with a brand - but you can't communicate values without clarity.</p>
                 <p>The gap between brands that "feel professional" and brands that "feel thrown together" is simply this: consistent messaging across every touchpoint.</p>
                 <p>You don't need a marketing degree. You don't need a creative agency. You just need the right system to extract your unique positioning and articulate it clearly.</p>
@@ -1558,45 +1448,45 @@
             </div>
             <div class="included-grid">
                 <div class="included-card">
-                    <div class="included-card-icon">📝</div>
+                    <div class="included-card-icon">📋</div>
                     <div class="included-card-content">
-                        <h4>25 Bio Variations</h4>
-                        <p>Professionally crafted bios optimized for Twitter, Instagram, LinkedIn, TikTok, Facebook, your website, speaker sheets, podcast intros, guest articles, and more. Never stare at a blank "About Me" section again.</p>
+                        <h4>Brand Identity Guide</h4>
+                        <p>Strategy, positioning, archetype, colours, typography, voice, logos - every detail of your brand in one premium document. Your single source of truth.</p>
                     </div>
                 </div>
                 <div class="included-card">
-                    <div class="included-card-icon">💡</div>
+                    <div class="included-card-icon">🎨</div>
                     <div class="included-card-content">
-                        <h4>30 Content Angle Ideas</h4>
-                        <p>A complete content strategy showing exactly what to talk about, how to position each piece, and which angles resonate with your specific audience. End the "what should I post?" paralysis forever.</p>
-                    </div>
-                </div>
-                <div class="included-card">
-                    <div class="included-card-icon">🎯</div>
-                    <div class="included-card-content">
-                        <h4>Complete Positioning Framework</h4>
-                        <p>Your unique market position clearly defined: who you serve, what makes you different, your core message, and how to communicate your value in 10 seconds or 10 minutes.</p>
+                        <h4>Colour Palette</h4>
+                        <p>Six named colours extracted from YOUR photos - not random swatches. Includes hex codes, RGB, CMYK, and usage guidelines for every context from web to print.</p>
                     </div>
                 </div>
                 <div class="included-card">
                     <div class="included-card-icon">🗣️</div>
                     <div class="included-card-content">
-                        <h4>Brand Voice Guide</h4>
-                        <p>Your distinctive communication style documented with specific examples - tone, vocabulary, sentence structure, the way you should sound across all content to build immediate recognition.</p>
+                        <h4>Voice Guide</h4>
+                        <p>Your tone DNA, word banks, platform-specific examples, and ready-to-post captions. Never wonder how your brand should sound again.</p>
                     </div>
                 </div>
                 <div class="included-card">
-                    <div class="included-card-icon">💬</div>
+                    <div class="included-card-icon">⚙️</div>
                     <div class="included-card-content">
-                        <h4>Messaging Matrix</h4>
-                        <p>Pre-written messaging for common scenarios: elevator pitches, email introductions, cold outreach, sales conversations, partnership proposals, media appearances, and more. Just customize and use.</p>
+                        <h4>Design System</h4>
+                        <p>Typography pairings, spacing rules, components, buttons, cards, and responsive breakpoints. Everything a developer or designer needs to build on-brand.</p>
                     </div>
                 </div>
                 <div class="included-card">
-                    <div class="included-card-icon">📱</div>
+                    <div class="included-card-icon">✨</div>
                     <div class="included-card-content">
-                        <h4>Platform-Specific Adaptation Guide</h4>
-                        <p>How to adjust your core message for each platform's unique culture and format, so you're consistent but never robotic.</p>
+                        <h4>30 Custom Designs</h4>
+                        <p>Photo-driven editorial designs using YOUR photos, YOUR colours, YOUR fonts. Instagram posts, Facebook covers, LinkedIn banners, email headers, business cards - ready to post or print.</p>
+                    </div>
+                </div>
+                <div class="included-card">
+                    <div class="included-card-icon">💎</div>
+                    <div class="included-card-content">
+                        <h4>Logo Suite</h4>
+                        <p>Five SVG logo variations - wordmark, icon mark, monogram, stacked, and combined. Crisp at any size, from favicon to billboard.</p>
                     </div>
                 </div>
             </div>
@@ -1607,15 +1497,15 @@
     <section class="timeline-section">
         <div class="container">
             <div class="timeline-intro">
-                <h2>Here's what your afternoon looks like after joining</h2>
-                <p>You settle in with your coffee. You open Brand in a Box and start the AI strategy session. The first question appears: "Who is the person you most want to serve?" You type your answer. The AI asks a follow-up. Then another. You realize you're having a conversation that's actually pulling clarity out of your head.</p>
-                <p><strong>45 minutes in.</strong> The AI has asked about your background, your unique approach, your audience's biggest struggles, what makes you different from others in your space. You've answered honestly. No overthinking. Just truth.</p>
-                <p><strong>60 minutes in.</strong> You watch as the AI processes everything you've shared. Suddenly your screen fills with bio variations. You read the first one and think, "Holy shit, that's exactly what I've been trying to say for six months." You read another. Even better. There are 23 more.</p>
-                <p><strong>75 minutes in.</strong> You scroll through 30 content angle ideas. Each one is specific. Each one makes sense for your audience. You think, "I could post about this today. And this tomorrow. And this next week." Your content calendar practically writes itself.</p>
-                <p><strong>90 minutes in.</strong> You're looking at your complete positioning framework. It's there in black and white: who you serve, what you do differently, why it matters, how to say it. Your brand voice guide shows exact examples of how you should sound. Your messaging matrix has the exact words for every situation.</p>
-                <p><strong>2 hours later.</strong> You've updated your Twitter bio. Your LinkedIn headline. Your Instagram bio. Your website About page. All consistent. All clear. All you.</p>
-                <p>You get a DM from someone who says, "Just read your new bio. Finally understand what you do. Are you taking clients?"</p>
-                <p><strong>This is what's possible when you have the right framework and 90 focused minutes. And it's available to you right now.</strong></p>
+                <h2>Here's what happens after you order</h2>
+                <p>You fill out a short questionnaire - your business name, who you help, what you do, how you want your brand to feel. You upload 3-5 photos. Hit submit.</p>
+                <p><strong>Minutes later.</strong> You get a notification. Your brand kit is ready. You open the ZIP and start scrolling through your deliverables.</p>
+                <p><strong>Your colour palette.</strong> Six colours pulled from YOUR photos - not random swatches from a generator. They actually look like you. Named, with hex codes, ready to use everywhere.</p>
+                <p><strong>Your brand guide.</strong> Positioning, archetype, strategy - all written in your voice. You read it and think, "That's exactly what I've been trying to say."</p>
+                <p><strong>Your designs.</strong> 30 of them. Instagram posts with your photos. LinkedIn banners in your colours. Facebook covers. Email headers. Business cards. All matching. All professional. All YOU.</p>
+                <p><strong>Your logo suite.</strong> Five variations of your logo in SVG - works from a tiny favicon to a massive billboard. Wordmark, icon, monogram, stacked, combined.</p>
+                <p>You update your Instagram. Change your LinkedIn banner. Post your first on-brand design. Someone DMs you: "Your brand looks incredible. Who did it?"</p>
+                <p><strong>You did. In minutes. For $97.</strong></p>
             </div>
         </div>
     </section>
@@ -1625,11 +1515,11 @@
         <div class="container">
             <div class="opportunity-content">
                 <h2>Don't do this alone</h2>
-                <p>🎯 <strong>No spending weeks staring at blank documents</strong> - The AI strategy session asks the right questions in the right order, extracting clarity even when you feel confused.</p>
-                <p>🎯 <strong>No hiring expensive brand strategists</strong> - Get the same strategic frameworks that $5K consultants use, without the 6-week timeline or enterprise pricing.</p>
-                <p>🎯 <strong>No inconsistent messaging across platforms</strong> - All 25 bio variations come from the same core positioning, so you're recognizable everywhere.</p>
-                <p>🎯 <strong>No wondering what content to create</strong> - The 30 content angles are specific, strategic, and tailored to your audience's actual needs.</p>
-                <p>🎯 <strong>No freezing when someone asks what you do</strong> - The messaging matrix gives you exact language for every situation, from casual networking to formal pitches.</p>
+                <p>🎯 <strong>No spending weeks on DIY branding</strong> - Answer a questionnaire, upload photos, and your complete brand kit is generated for you.</p>
+                <p>🎯 <strong>No hiring expensive designers or agencies</strong> - Get a complete brand identity that rivals $5K agency work, for $97.</p>
+                <p>🎯 <strong>No inconsistent branding across platforms</strong> - Every design, colour, and font is generated from the same source. You look professional everywhere.</p>
+                <p>🎯 <strong>No wondering what to post</strong> - 30 ready-to-use designs with your photos, your colours, your fonts. Just download and post.</p>
+                <p>🎯 <strong>No starting from scratch</strong> - Brand guide, voice guide, design system - everything documented so you (or your VA) can stay on-brand forever.</p>
                 <a href="https://buy.stripe.com/8x25kDeBSgjdeREeVTbQY0J" class="btn btn-primary btn-large" style="margin-top: 32px;" target="_blank" rel="noopener noreferrer">
                     I Want the Complete System →
                 </a>
@@ -1646,27 +1536,27 @@
             <div class="faq-list">
                 <div class="faq-item">
                     <button class="faq-question">What if I don't have my positioning figured out yet?</button>
-                    <div class="faq-answer">Perfect. That's exactly what the strategy session is designed to do. The AI asks questions that extract your positioning even when you can't articulate it. You don't need clarity to start - the session creates the clarity.</div>
+                    <div class="faq-answer">Perfect. The questionnaire is designed to draw out your brand even when you're not sure yourself. Answer honestly about your business, your audience, and how you want to feel - the AI does the rest.</div>
                 </div>
                 <div class="faq-item">
                     <button class="faq-question">What if I'm worried the AI will make me sound generic?</button>
-                    <div class="faq-answer">The opposite happens. Because the AI asks deep questions about YOUR specific approach, audience, and background, it generates positioning that's uniquely yours. Most people say, "This sounds more like me than what I've been saying."</div>
+                    <div class="faq-answer">The opposite happens. Your colours come from YOUR photos. Your designs use YOUR images. Your voice guide is based on YOUR answers. Two people could order the same product and get completely different brands.</div>
                 </div>
                 <div class="faq-item">
                     <button class="faq-question">Can I edit the assets after they're generated?</button>
-                    <div class="faq-answer">Absolutely. You get everything in an editable document. Most people use 80% as-is and customize 20% to perfection. The AI gives you professional starting points; you make them yours.</div>
+                    <div class="faq-answer">Yes. Designs come as HTML files you can edit and PNGs ready to post. The brand guide, voice guide, and design system are all editable documents.</div>
                 </div>
                 <div class="faq-item">
                     <button class="faq-question">Will this work for my industry?</button>
-                    <div class="faq-answer">Yes. The frameworks work for coaches, consultants, service providers, agencies, creators, course creators, SaaS founders, ecommerce brands, and beyond. The AI adapts outputs to your specific market.</div>
+                    <div class="faq-answer">Yes. Coaches, consultants, healers, service providers, creators, course creators, and small business owners. The AI adapts to your specific market and audience.</div>
                 </div>
                 <div class="faq-item">
                     <button class="faq-question">What if I want to update my brand later?</button>
-                    <div class="faq-answer">You can run the session again anytime. Your purchase includes ongoing access. As your business evolves, regenerate assets to reflect your new positioning.</div>
+                    <div class="faq-answer">Your $97 includes 3 generation runs. Want to try different colours, a different vibe, or brand a second business? Run it again. Assets are available for download for 7 days.</div>
                 </div>
                 <div class="faq-item">
                     <button class="faq-question">How long does the session actually take?</button>
-                    <div class="faq-answer">About 90 minutes. You can pause and come back if needed. Most people complete it in one sitting while they're focused. You'll have instant access and can start immediately after purchase.</div>
+                    <div class="faq-answer">The questionnaire takes about 5 minutes. Your brand kit is generated in minutes after that. The whole process from purchase to downloading your assets is under 15 minutes.</div>
                 </div>
                 <div class="faq-item">
                     <button class="faq-question">What if I'm not satisfied?</button>
@@ -1683,15 +1573,15 @@
                 <div class="guarantee-icon">🛡️</div>
                 <h2>My "Keep Everything" 60-Day Guarantee</h2>
                 <p><strong>Here's the deal:</strong> I want you to try Brand in a Box completely risk-free.</p>
-                <p>Get instant access. Start the session. Answer the questions. Generate your 50+ assets. Use them across all your platforms. Update your bios, build your content calendar, deploy your new positioning.</p>
+                <p>Get instant access. Start the session. Answer the questions. Generate your brand kit. Use your designs across all your platforms. Update your profiles with your new colours and logos.</p>
                 <p>If at any point in the next 60 days you decide this isn't for you - for any reason, or for no reason at all - just send me an email and I'll refund every penny.</p>
                 <p><strong>No questions asked. No hoops to jump through. No "delete everything first" requirement.</strong></p>
                 <p><strong>And here's the best part: You keep everything.</strong></p>
-                <p>That's right. Keep all 25 bio variations. Keep the 30 content angles. Keep the positioning framework. Keep the brand voice guide. Keep the messaging matrix. Keep everything you've already implemented.</p>
+                <p>That's right. Keep your brand guide. Keep the colour palette. Keep the voice guide. Keep all 30 designs. Keep the logos. Keep everything you've already posted.</p>
                 <p><strong>Why would I do this?</strong></p>
                 <p>Because I'm confident this system works. And I know that once you complete the strategy session and see your positioning articulated clearly for the first time, you're going to feel the difference. You're going to show up with confidence. You're going to stop second-guessing every bio and post.</p>
                 <p>I'd rather take on 100% of the risk myself than have you sitting there wondering "what if?"</p>
-                <p><strong>So here's what this means:</strong> You're not risking $97. You're not risking anything. You're simply deciding whether you want instant access to a system that can give you complete brand clarity in 90 minutes.</p>
+                <p><strong>So here's what this means:</strong> You're not risking $97. You're not risking anything. You're simply deciding whether you want a complete brand identity built from your own photos, delivered in minutes.</p>
                 <p>If it doesn't work for you, you get your money back AND you keep everything.</p>
                 <p>That's as fair as I can possibly make it.</p>
                 <p><strong>The only way you lose is by waiting.</strong></p>
@@ -1699,33 +1589,8 @@
         </div>
     </section>
 
-    <!-- URGENCY SECTION -->
-    <section class="urgency-section">
-        <div class="container">
-            <div class="urgency-content">
-                <h2>Why you need to join before December 31st</h2>
-                <p>Right now, you're seeing the Beta launch price: <strong>$97</strong>.</p>
-                <p>After December 31st, the price increases to full price. No exceptions.</p>
-                <p>That's $20 in savings for being an early adopter. But more importantly, <strong>you're losing entire weeks of momentum</strong>.</p>
-                <p>Every week you delay is another week showing up with inconsistent messaging. Another week potential clients trying to figure out what you actually do. Another week watching competitors with clear positioning win opportunities that should be yours.</p>
-                
-                <div class="urgency-options">
-                    <div class="urgency-option">
-                        <h3>Option 1</h3>
-                        <p>Join today for $97. Complete the session this afternoon. Have 50+ branded assets ready to deploy and actually present a professional brand everywhere you show up.</p>
-                    </div>
-                    <div class="urgency-option">
-                        <h3>Option 2</h3>
-                        <p>Wait, and keep pushing your brand clarity to "someday" while confusion costs you opportunities.</p>
-                    </div>
-                </div>
-                
-                <p style="margin-top: 32px;">The system is ready. The price is at its lowest. Your afternoon is open.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- FINAL CTA -->
+    
+        <!-- FINAL CTA -->
     <section class="final-cta-section">
         <div class="container">
             <div class="final-cta-content">
@@ -1743,12 +1608,12 @@
                 <a href="https://buy.stripe.com/8x25kDeBSgjdeREeVTbQY0J" class="btn btn-primary btn-large btn-pulse" target="_blank" rel="noopener noreferrer">
                     Get Your Brand Kit →
                 </a>
-                <p style="margin-top: 32px; font-size: 16px;">You don't need to figure this out alone anymore. You don't need to spend 47 hours staring at your About page trying to find the right words. You don't need to hire a $5,000 brand strategist and wait 6 weeks for deliverables. You don't need to show up with different messaging on every platform because you never nailed your positioning.</p>
-                <p style="font-size: 16px;"><strong>Brand in a Box gives you everything in one place, in one focused session, built for people who want brand clarity NOW, not eventually.</strong></p>
-                <p style="font-size: 16px;">Personal brands collectively generate over $104 billion annually. The creator economy is thriving. The opportunity is massive. The only question is whether you'll show up with clear, consistent, professional positioning - or keep winging it.</p>
-                <p style="font-size: 16px;"><strong>This afternoon could be the afternoon that changes how you show up everywhere.</strong></p>
-                <p style="font-size: 16px;">Or it could be another afternoon of "I'll figure out my brand later."</p>
-                <p style="font-size: 16px; margin-top: 24px;"><strong>The system is ready.</strong></p>
+                <p style="margin-top: 32px; font-size: 16px;">You don't need to figure out branding alone. You don't need to hire a $5,000 designer. You don't need to spend weeks in Canva making things that don't match. You don't need to show up looking different on every platform.</p>
+                <p style="font-size: 16px;"><strong>Brand in a Box gives you a complete, custom brand identity - built from YOUR photos, YOUR answers, YOUR personality. Not a template. Not generic. Yours.</strong></p>
+                <p style="font-size: 16px;">The difference between brands that look professional and brands that look thrown together is consistency. Same colours, same fonts, same voice, everywhere. Brand in a Box gives you that in minutes.</p>
+                <p style="font-size: 16px;"><strong>You could have your complete brand identity by this afternoon.</strong></p>
+                <p style="font-size: 16px;">Or you could keep putting it off and showing up inconsistently.</p>
+                <p style="font-size: 16px; margin-top: 24px;"><strong>$97. Complete brand identity. Minutes, not weeks.</strong></p>
                 <p style="font-size: 16px;"><strong>And with the 60-day "Keep Everything" guarantee, you literally cannot lose.</strong></p>
             </div>
         </div>

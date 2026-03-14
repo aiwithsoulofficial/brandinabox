@@ -623,43 +623,66 @@
             color: rgba(255,255,255,0.7);
         }
 
-        .showcase-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
+        .showcase-row {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 16px;
         }
 
-        .showcase-grid img {
-            width: 100%;
+        .showcase-row img {
             border-radius: var(--radius-lg);
-            transition: transform 0.3s ease;
             box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease;
+            object-fit: cover;
         }
 
-        .showcase-grid img:hover {
-            transform: scale(1.03);
+        .showcase-row img:hover {
+            transform: scale(1.02);
         }
 
-        .showcase-grid .wide {
-            grid-column: span 2;
+        .showcase-row.three-up img {
+            width: calc(33.333% - 11px);
+            aspect-ratio: 1;
+        }
+
+        .showcase-row.full-width img {
+            width: 100%;
+        }
+
+        .showcase-row.two-up img {
+            width: calc(50% - 8px);
+            aspect-ratio: 1;
         }
 
         @media (max-width: 768px) {
-            .showcase-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 12px;
+            .showcase-section {
+                padding: 40px 0;
             }
-            .showcase-grid .wide {
-                grid-column: span 2;
+            .showcase-row {
+                gap: 10px;
+                margin-bottom: 10px;
+            }
+            .showcase-row.three-up img {
+                width: calc(33.333% - 7px);
+            }
+            .showcase-header {
+                margin-bottom: 24px;
             }
         }
 
         @media (max-width: 480px) {
-            .showcase-grid {
-                grid-template-columns: 1fr;
+            .showcase-row {
+                gap: 8px;
+                margin-bottom: 8px;
             }
-            .showcase-grid .wide {
-                grid-column: span 1;
+            .showcase-row.three-up {
+                flex-wrap: wrap;
+            }
+            .showcase-row.three-up img {
+                width: calc(50% - 4px);
+            }
+            .showcase-row.three-up img:last-child {
+                width: 100%;
             }
         }
 
@@ -1342,8 +1365,212 @@
                 font-size: 13px;
             }
         }
-    
 
+        /* ===== UNBOX ANIMATION ===== */
+        .b-unbox-container {
+          position: relative;
+          width: 460px;
+          max-width: 90vw;
+          padding-top: 100px;
+          flex-shrink: 0;
+        }
+        .b-unbox-box-wrap {
+          position: relative;
+          z-index: 2;
+          width: 100%;
+        }
+        .b-unbox-box-closed,
+        .b-unbox-box-open {
+          width: 100%;
+          display: block;
+          pointer-events: none;
+          user-select: none;
+          filter: drop-shadow(0 16px 40px rgba(0,0,0,0.5));
+        }
+        .b-unbox-box-open {
+          position: absolute;
+          top: 0; left: 0;
+          opacity: 0;
+        }
+        .b-unbox-cards {
+          position: absolute;
+          left: 50%;
+          transform: translateX(-50%);
+          bottom: 50px;
+          width: 340px;
+          height: 160px;
+          z-index: 3;
+          pointer-events: none;
+          overflow: visible;
+        }
+        @keyframes b-box-close {
+          0%    { opacity: 1; }
+          20%   { opacity: 1; }
+          25%   { opacity: 0; }
+          75%   { opacity: 0; }
+          82%   { opacity: 1; }
+          100%  { opacity: 1; }
+        }
+        @keyframes b-box-open {
+          0%    { opacity: 0; }
+          20%   { opacity: 0; }
+          25%   { opacity: 1; }
+          75%   { opacity: 1; }
+          82%   { opacity: 0; }
+          100%  { opacity: 0; }
+        }
+        .b-unbox-playing .b-unbox-box-closed {
+          animation: b-box-close 8s ease-in-out infinite;
+        }
+        .b-unbox-playing .b-unbox-box-open {
+          animation: b-box-open 8s ease-in-out infinite;
+        }
+        .b-unbox-card {
+          position: absolute;
+          width: 90px;
+          height: 120px;
+          border-radius: 8px;
+          overflow: hidden;
+          border: 1px solid rgba(212,175,103,0.35);
+          box-shadow: 0 4px 20px rgba(0,0,0,0.7), 0 0 0 1px rgba(212,175,103,0.08);
+          opacity: 0;
+          pointer-events: auto;
+        }
+        .b-unbox-card img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: top;
+          display: block;
+        }
+        .b-unbox-card-label {
+          position: absolute;
+          bottom: 0; left: 0; right: 0;
+          padding: 4px 6px;
+          background: linear-gradient(to top, rgba(7,17,31,0.95), transparent);
+          font-size: 0.55rem;
+          font-weight: 500;
+          letter-spacing: 0.12em;
+          text-transform: uppercase;
+          color: #d4af67;
+        }
+        .b-unbox-card-tag {
+          position: absolute;
+          top: 4px; left: 4px;
+          font-size: 0.5rem;
+          letter-spacing: 0.14em;
+          text-transform: uppercase;
+          color: rgba(247,231,206,0.65);
+          background: rgba(7,17,31,0.75);
+          padding: 2px 4px;
+          border-radius: 3px;
+          border: 1px solid rgba(255,255,255,0.08);
+        }
+        .b-unbox-card:nth-child(1) { z-index: 7; }
+        .b-unbox-card:nth-child(2) { z-index: 6; }
+        .b-unbox-card:nth-child(3) { z-index: 5; }
+        .b-unbox-card:nth-child(4) { z-index: 4; }
+        .b-unbox-card:nth-child(5) { z-index: 3; }
+        .b-unbox-card:nth-child(6) { z-index: 2; }
+        .b-unbox-card:nth-child(7) { z-index: 1; }
+
+        @keyframes b-card-1 {
+          0%    { opacity: 0; transform: translate(85px, 40px) rotate(-3deg) scale(0.7); }
+          20%   { opacity: 0; transform: translate(85px, 40px) rotate(-3deg) scale(0.7); }
+          28%   { opacity: 1; transform: translate(85px, 40px) rotate(-3deg) scale(0.7); }
+          35%   { opacity: 1; transform: translate(85px, 40px) rotate(-3deg) scale(0.7); }
+          48%   { opacity: 1; transform: translate(-20px, -120px) rotate(-14deg) scale(1); }
+          62%   { opacity: 1; transform: translate(-20px, -120px) rotate(-14deg) scale(1); }
+          72%   { opacity: 0; transform: translate(-20px, -135px) rotate(-16deg) scale(1); }
+          75%   { opacity: 0; transform: translate(85px, 40px) rotate(-3deg) scale(0.7); }
+          100%  { opacity: 0; transform: translate(85px, 40px) rotate(-3deg) scale(0.7); }
+        }
+        @keyframes b-card-2 {
+          0%    { opacity: 0; transform: translate(100px, 35px) rotate(2deg) scale(0.7); }
+          20%   { opacity: 0; transform: translate(100px, 35px) rotate(2deg) scale(0.7); }
+          29%   { opacity: 1; transform: translate(100px, 35px) rotate(2deg) scale(0.7); }
+          36%   { opacity: 1; transform: translate(100px, 35px) rotate(2deg) scale(0.7); }
+          49%   { opacity: 1; transform: translate(30px, -140px) rotate(8deg) scale(1); }
+          62%   { opacity: 1; transform: translate(30px, -140px) rotate(8deg) scale(1); }
+          72%   { opacity: 0; transform: translate(30px, -155px) rotate(10deg) scale(1); }
+          75%   { opacity: 0; transform: translate(100px, 35px) rotate(2deg) scale(0.7); }
+          100%  { opacity: 0; transform: translate(100px, 35px) rotate(2deg) scale(0.7); }
+        }
+        @keyframes b-card-3 {
+          0%    { opacity: 0; transform: translate(115px, 42px) rotate(-1deg) scale(0.7); }
+          20%   { opacity: 0; transform: translate(115px, 42px) rotate(-1deg) scale(0.7); }
+          30%   { opacity: 1; transform: translate(115px, 42px) rotate(-1deg) scale(0.7); }
+          37%   { opacity: 1; transform: translate(115px, 42px) rotate(-1deg) scale(0.7); }
+          50%   { opacity: 1; transform: translate(80px, -130px) rotate(-8deg) scale(1); }
+          62%   { opacity: 1; transform: translate(80px, -130px) rotate(-8deg) scale(1); }
+          72%   { opacity: 0; transform: translate(80px, -145px) rotate(-10deg) scale(1); }
+          75%   { opacity: 0; transform: translate(115px, 42px) rotate(-1deg) scale(0.7); }
+          100%  { opacity: 0; transform: translate(115px, 42px) rotate(-1deg) scale(0.7); }
+        }
+        @keyframes b-card-4 {
+          0%    { opacity: 0; transform: translate(130px, 38px) rotate(3deg) scale(0.7); }
+          20%   { opacity: 0; transform: translate(130px, 38px) rotate(3deg) scale(0.7); }
+          31%   { opacity: 1; transform: translate(130px, 38px) rotate(3deg) scale(0.7); }
+          38%   { opacity: 1; transform: translate(130px, 38px) rotate(3deg) scale(0.7); }
+          51%   { opacity: 1; transform: translate(135px, -145px) rotate(12deg) scale(1); }
+          62%   { opacity: 1; transform: translate(135px, -145px) rotate(12deg) scale(1); }
+          72%   { opacity: 0; transform: translate(135px, -160px) rotate(14deg) scale(1); }
+          75%   { opacity: 0; transform: translate(130px, 38px) rotate(3deg) scale(0.7); }
+          100%  { opacity: 0; transform: translate(130px, 38px) rotate(3deg) scale(0.7); }
+        }
+        @keyframes b-card-5 {
+          0%    { opacity: 0; transform: translate(145px, 44px) rotate(-2deg) scale(0.7); }
+          20%   { opacity: 0; transform: translate(145px, 44px) rotate(-2deg) scale(0.7); }
+          32%   { opacity: 1; transform: translate(145px, 44px) rotate(-2deg) scale(0.7); }
+          39%   { opacity: 1; transform: translate(145px, 44px) rotate(-2deg) scale(0.7); }
+          52%   { opacity: 1; transform: translate(190px, -125px) rotate(-10deg) scale(1); }
+          62%   { opacity: 1; transform: translate(190px, -125px) rotate(-10deg) scale(1); }
+          72%   { opacity: 0; transform: translate(190px, -140px) rotate(-12deg) scale(1); }
+          75%   { opacity: 0; transform: translate(145px, 44px) rotate(-2deg) scale(0.7); }
+          100%  { opacity: 0; transform: translate(145px, 44px) rotate(-2deg) scale(0.7); }
+        }
+        @keyframes b-card-6 {
+          0%    { opacity: 0; transform: translate(160px, 36px) rotate(4deg) scale(0.7); }
+          20%   { opacity: 0; transform: translate(160px, 36px) rotate(4deg) scale(0.7); }
+          33%   { opacity: 1; transform: translate(160px, 36px) rotate(4deg) scale(0.7); }
+          40%   { opacity: 1; transform: translate(160px, 36px) rotate(4deg) scale(0.7); }
+          53%   { opacity: 1; transform: translate(245px, -135px) rotate(15deg) scale(1); }
+          62%   { opacity: 1; transform: translate(245px, -135px) rotate(15deg) scale(1); }
+          72%   { opacity: 0; transform: translate(245px, -150px) rotate(17deg) scale(1); }
+          75%   { opacity: 0; transform: translate(160px, 36px) rotate(4deg) scale(0.7); }
+          100%  { opacity: 0; transform: translate(160px, 36px) rotate(4deg) scale(0.7); }
+        }
+        @keyframes b-card-7 {
+          0%    { opacity: 0; transform: translate(175px, 40px) rotate(-3deg) scale(0.7); }
+          20%   { opacity: 0; transform: translate(175px, 40px) rotate(-3deg) scale(0.7); }
+          34%   { opacity: 1; transform: translate(175px, 40px) rotate(-3deg) scale(0.7); }
+          41%   { opacity: 1; transform: translate(175px, 40px) rotate(-3deg) scale(0.7); }
+          54%   { opacity: 1; transform: translate(290px, -115px) rotate(-12deg) scale(1); }
+          62%   { opacity: 1; transform: translate(290px, -115px) rotate(-12deg) scale(1); }
+          72%   { opacity: 0; transform: translate(290px, -130px) rotate(-14deg) scale(1); }
+          75%   { opacity: 0; transform: translate(175px, 40px) rotate(-3deg) scale(0.7); }
+          100%  { opacity: 0; transform: translate(175px, 40px) rotate(-3deg) scale(0.7); }
+        }
+        .b-unbox-playing .b-unbox-card:nth-child(1) { animation: b-card-1 8s ease-in-out infinite; }
+        .b-unbox-playing .b-unbox-card:nth-child(2) { animation: b-card-2 8s ease-in-out infinite; }
+        .b-unbox-playing .b-unbox-card:nth-child(3) { animation: b-card-3 8s ease-in-out infinite; }
+        .b-unbox-playing .b-unbox-card:nth-child(4) { animation: b-card-4 8s ease-in-out infinite; }
+        .b-unbox-playing .b-unbox-card:nth-child(5) { animation: b-card-5 8s ease-in-out infinite; }
+        .b-unbox-playing .b-unbox-card:nth-child(6) { animation: b-card-6 8s ease-in-out infinite; }
+        .b-unbox-playing .b-unbox-card:nth-child(7) { animation: b-card-7 8s ease-in-out infinite; }
+
+        @media (max-width: 600px) {
+          .b-unbox-container {
+            width: 100%;
+            padding-top: 60px;
+          }
+          .b-unbox-cards {
+            width: 260px;
+            bottom: 40px;
+            transform: translateX(-50%) scale(0.65);
+            transform-origin: center center;
+          }
+        }
 
     </style>
 </head>
@@ -1424,6 +1651,35 @@
             <div class="stats-intro">
                 <p><strong>Professional brand identity packages cost $2,000-$5,000 and take 4-6 weeks.</strong> Freelance designers charge $500+ for a logo alone. DIY tools like Canva leave you with generic templates that look like everyone else.</p>
                 <p>Brand in a Box uses AI to generate a <strong>complete, custom brand identity from your own photos</strong> - colours extracted from your images, designs built around your aesthetic, voice crafted from your answers. Everything you need to show up consistently and professionally. <strong>For $97. Delivered in minutes.</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SHOWCASE -->
+    <section class="showcase-section">
+        <div class="container">
+            <div class="showcase-header">
+                <h2>Real Output. Real Brand.</h2>
+                <p>Every design built from the client's own photos, colours, and voice.</p>
+            </div>
+            <!-- Row 1: Three square IG designs -->
+            <div class="showcase-row three-up">
+                <img src="showcase-1.png" alt="Instagram hero design">
+                <img src="showcase-3.png" alt="Services card design">
+                <img src="showcase-4.png" alt="Event promo design">
+            </div>
+            <!-- Row 2: Full-width Facebook cover -->
+            <div class="showcase-row full-width">
+                <img src="showcase-2.png" alt="Facebook cover design">
+            </div>
+            <!-- Row 3: Two square designs -->
+            <div class="showcase-row two-up">
+                <img src="showcase-5.png" alt="Testimonial design">
+                <img src="showcase-7.png" alt="Quote design">
+            </div>
+            <!-- Row 4: Full-width LinkedIn banner -->
+            <div class="showcase-row full-width">
+                <img src="showcase-6.png" alt="LinkedIn banner design">
             </div>
         </div>
     </section>
@@ -1511,74 +1767,114 @@
         </div>
     </section>
 
-    <!-- WHAT'S INCLUDED -->
+    <!-- WHAT'S INCLUDED - UNBOX ANIMATION -->
     <section class="included-section">
         <div class="container">
             <div class="included-header">
-                <h2>What's Included?</h2>
+                <h2>What's Inside the Box?</h2>
+                <p style="color: rgba(255,255,255,0.7); font-size: 18px; margin-top: 12px;">Your complete brand identity - delivered in minutes, not weeks.</p>
             </div>
+
+            <!-- UNBOX ANIMATION -->
+            <div style="display: flex; justify-content: center; margin-bottom: 48px;">
+                <div class="b-unbox-container" id="unboxAnimation">
+                    <div class="b-unbox-cards">
+                        <div class="b-unbox-card">
+                            <img src="biab-demo-photo-1.png" alt="Your Photos">
+                            <div class="b-unbox-card-tag">You provide</div>
+                            <div class="b-unbox-card-label">Your Photos</div>
+                        </div>
+                        <div class="b-unbox-card">
+                            <img src="biab-demo-photo-2.png" alt="Questionnaire">
+                            <div class="b-unbox-card-tag">You provide</div>
+                            <div class="b-unbox-card-label">Questionnaire</div>
+                        </div>
+                        <div class="b-unbox-card">
+                            <img src="biab-demo-brand-guide.png" alt="Brand Guide">
+                            <div class="b-unbox-card-label">Brand Guide</div>
+                        </div>
+                        <div class="b-unbox-card">
+                            <img src="biab-demo-colour-palette.png" alt="Colour Palette">
+                            <div class="b-unbox-card-label">Colour Palette</div>
+                        </div>
+                        <div class="b-unbox-card">
+                            <img src="biab-demo-voice-guide.png" alt="Voice Guide">
+                            <div class="b-unbox-card-label">Voice Guide</div>
+                        </div>
+                        <div class="b-unbox-card">
+                            <img src="biab-demo-design-system.png" alt="Design System">
+                            <div class="b-unbox-card-label">Design System</div>
+                        </div>
+                        <div class="b-unbox-card">
+                            <img src="biab-demo-template-1.png" alt="30 Designs">
+                            <div class="b-unbox-card-label">30 Designs</div>
+                        </div>
+                    </div>
+                    <div class="b-unbox-box-wrap">
+                        <img class="b-unbox-box-closed" src="biab-box-render-1.png" alt="Brand in a Box - closed">
+                        <img class="b-unbox-box-open" src="biab-box-open-2.png" alt="Brand in a Box - open">
+                    </div>
+                </div>
+            </div>
+
+            <!-- DELIVERABLE CARDS -->
             <div class="included-grid">
                 <div class="included-card">
                     <div class="included-card-icon">📋</div>
                     <div class="included-card-content">
                         <h4>Brand Identity Guide</h4>
-                        <p>Strategy, positioning, archetype, colours, typography, voice, logos - every detail of your brand in one premium document. Your single source of truth.</p>
+                        <p>Strategy, positioning, archetype, colours, typography, voice, logos - every detail of your brand in one premium document.</p>
                     </div>
                 </div>
                 <div class="included-card">
                     <div class="included-card-icon">🎨</div>
                     <div class="included-card-content">
                         <h4>Colour Palette</h4>
-                        <p>Six named colours extracted from YOUR photos - not random swatches. Includes hex codes, RGB, CMYK, and usage guidelines for every context from web to print.</p>
+                        <p>Six named colours extracted from YOUR photos. Hex codes, RGB, CMYK, and usage guidelines for web and print.</p>
                     </div>
                 </div>
                 <div class="included-card">
                     <div class="included-card-icon">🗣️</div>
                     <div class="included-card-content">
                         <h4>Voice Guide</h4>
-                        <p>Your tone DNA, word banks, platform-specific examples, and ready-to-post captions. Never wonder how your brand should sound again.</p>
+                        <p>Your tone DNA, word banks, platform-specific examples, and ready-to-post captions.</p>
                     </div>
                 </div>
                 <div class="included-card">
                     <div class="included-card-icon">⚙️</div>
                     <div class="included-card-content">
                         <h4>Design System</h4>
-                        <p>Typography pairings, spacing rules, components, buttons, cards, and responsive breakpoints. Everything a developer or designer needs to build on-brand.</p>
+                        <p>Typography pairings, spacing rules, components, buttons, cards, and responsive breakpoints.</p>
                     </div>
                 </div>
                 <div class="included-card">
                     <div class="included-card-icon">✨</div>
                     <div class="included-card-content">
                         <h4>30 Custom Designs</h4>
-                        <p>Photo-driven editorial designs using YOUR photos, YOUR colours, YOUR fonts. Instagram posts, Facebook covers, LinkedIn banners, email headers, business cards - ready to post or print.</p>
+                        <p>Photo-driven editorial designs using YOUR photos, YOUR colours, YOUR fonts. Instagram, Facebook, LinkedIn, email - ready to post.</p>
                     </div>
                 </div>
                 <div class="included-card">
                     <div class="included-card-icon">💎</div>
                     <div class="included-card-content">
                         <h4>Logo Suite</h4>
-                        <p>Five SVG logo variations - wordmark, icon mark, monogram, stacked, and combined. Crisp at any size, from favicon to billboard.</p>
+                        <p>Five SVG logo variations - wordmark, icon mark, monogram, stacked, and combined. Crisp at any size.</p>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SHOWCASE -->
-    <section class="showcase-section">
-        <div class="container">
-            <div class="showcase-header">
-                <h2>Real Output. Real Brand.</h2>
-                <p>Every design built from the client's own photos, colours, and voice.</p>
-            </div>
-            <div class="showcase-grid">
-                <img src="showcase-1.png" alt="Instagram hero design">
-                <img src="showcase-3.png" alt="Services card design">
-                <img src="showcase-4.png" alt="Event promo design">
-                <img src="showcase-2.png" alt="Facebook cover design" class="wide">
-                <img src="showcase-5.png" alt="Testimonial design">
-                <img src="showcase-6.png" alt="LinkedIn banner design" class="wide">
-                <img src="showcase-7.png" alt="Instagram quote design">
+                <div class="included-card">
+                    <div class="included-card-icon">🗺️</div>
+                    <div class="included-card-content">
+                        <h4>Strategic Roadmap</h4>
+                        <p>A clear plan for how to roll out your brand across platforms - what to do first, what to prioritise, and when to launch each piece.</p>
+                    </div>
+                </div>
+                <div class="included-card">
+                    <div class="included-card-icon">🔍</div>
+                    <div class="included-card-content">
+                        <h4>Implementation Guide</h4>
+                        <p>Clarity on what needs optimising and exactly how to go about it. Platform-by-platform implementation steps so nothing gets missed.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -1751,6 +2047,21 @@
                 item.classList.toggle('active');
             });
         });
+
+        // ===== UNBOX ANIMATION =====
+        const unboxEl = document.getElementById('unboxAnimation');
+        if (unboxEl) {
+            const unboxObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        unboxEl.classList.add('b-unbox-playing');
+                    } else {
+                        unboxEl.classList.remove('b-unbox-playing');
+                    }
+                });
+            }, { threshold: 0.3 });
+            unboxObserver.observe(unboxEl);
+        }
 
         // ===== SMOOTH SCROLL =====
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {

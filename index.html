@@ -600,6 +600,69 @@
             line-height: 1.7;
         }
 
+        /* ===== SHOWCASE ===== */
+        .showcase-section {
+            padding: 60px 0;
+            background: #101828;
+        }
+
+        .showcase-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .showcase-header h2 {
+            font-size: clamp(28px, 4vw, 42px);
+            font-weight: 800;
+            color: var(--white);
+            margin-bottom: 12px;
+        }
+
+        .showcase-header p {
+            font-size: 18px;
+            color: rgba(255,255,255,0.7);
+        }
+
+        .showcase-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .showcase-grid img {
+            width: 100%;
+            border-radius: var(--radius-lg);
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        .showcase-grid img:hover {
+            transform: scale(1.03);
+        }
+
+        .showcase-grid .wide {
+            grid-column: span 2;
+        }
+
+        @media (max-width: 768px) {
+            .showcase-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 12px;
+            }
+            .showcase-grid .wide {
+                grid-column: span 2;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .showcase-grid {
+                grid-template-columns: 1fr;
+            }
+            .showcase-grid .wide {
+                grid-column: span 1;
+            }
+        }
+
         /* ===== VALUE STACK ===== */
         .value-section {
             padding: 60px 0;
@@ -1497,6 +1560,25 @@
                         <p>Five SVG logo variations - wordmark, icon mark, monogram, stacked, and combined. Crisp at any size, from favicon to billboard.</p>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SHOWCASE -->
+    <section class="showcase-section">
+        <div class="container">
+            <div class="showcase-header">
+                <h2>Real Output. Real Brand.</h2>
+                <p>Every design built from the client's own photos, colours, and voice.</p>
+            </div>
+            <div class="showcase-grid">
+                <img src="showcase-1.png" alt="Instagram hero design">
+                <img src="showcase-3.png" alt="Services card design">
+                <img src="showcase-4.png" alt="Event promo design">
+                <img src="showcase-2.png" alt="Facebook cover design" class="wide">
+                <img src="showcase-5.png" alt="Testimonial design">
+                <img src="showcase-6.png" alt="LinkedIn banner design" class="wide">
+                <img src="showcase-7.png" alt="Instagram quote design">
             </div>
         </div>
     </section>

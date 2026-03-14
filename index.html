@@ -26,15 +26,15 @@
     <!-- End Meta Pixel Code -->
     <style>
         :root {
-            --primary: #6366f1;
-            --primary-dark: #4f46e5;
-            --primary-light: #818cf8;
-            --accent: #10b981;
-            --accent-dark: #059669;
+            --primary: #d4943a;
+            --primary-dark: #b8782e;
+            --primary-light: #e8a94e;
+            --accent: #e86b5a;
+            --accent-dark: #d4524a;
             --warning: #f59e0b;
             --danger: #ef4444;
-            --dark: #0f172a;
-            --dark-light: #1e293b;
+            --dark: #0c1220;
+            --dark-light: #152035;
             --gray-900: #111827;
             --gray-800: #1f2937;
             --gray-700: #374151;
@@ -46,8 +46,8 @@
             --gray-100: #f3f4f6;
             --gray-50: #f9fafb;
             --white: #ffffff;
-            --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            --gradient-accent: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+            --gradient-primary: linear-gradient(135deg, #d4943a 0%, #e86b5a 100%);
+            --gradient-accent: linear-gradient(135deg, #e86b5a 0%, #c94a6e 100%);
             --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
             --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
             --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
@@ -72,8 +72,8 @@
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             line-height: 1.6;
-            color: var(--gray-800);
-            background: var(--white);
+            color: #e0e0e0;
+            background: #0c1220;
             overflow-x: hidden;
             width: 100%;
         }
@@ -128,8 +128,8 @@
             top: 0;
             left: 0;
             right: 0;
-            background: var(--white);
-            box-shadow: var(--shadow-md);
+            background: #0c1220;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
             padding: 12px 20px;
             z-index: 1000;
             transform: translateY(-100%);
@@ -152,6 +152,7 @@
         .sticky-header-text {
             font-weight: 600;
             font-size: 14px;
+            color: var(--white);
         }
 
         .sticky-header-text .price {
@@ -178,12 +179,12 @@
         .btn-primary {
             background: var(--gradient-accent);
             color: var(--white);
-            box-shadow: 0 4px 14px rgba(16, 185, 129, 0.4);
+            box-shadow: 0 4px 14px rgba(232, 107, 90, 0.4);
         }
 
         .btn-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(16, 185, 129, 0.5);
+            box-shadow: 0 6px 20px rgba(232, 107, 90, 0.5);
         }
 
         .btn-secondary {
@@ -210,14 +211,14 @@
         }
 
         @keyframes pulse {
-            0%, 100% { box-shadow: 0 4px 14px rgba(16, 185, 129, 0.4); }
-            50% { box-shadow: 0 4px 30px rgba(16, 185, 129, 0.6); }
+            0%, 100% { box-shadow: 0 4px 14px rgba(232, 107, 90, 0.4); }
+            50% { box-shadow: 0 4px 30px rgba(232, 107, 90, 0.6); }
         }
 
         /* ===== HERO SECTION ===== */
         .hero {
-            padding: 60px 0 80px;
-            background: linear-gradient(180deg, var(--gray-50) 0%, var(--white) 100%);
+            padding: 50px 0 60px;
+            background: linear-gradient(180deg, #0f1825 0%, #0c1220 100%);
         }
 
         .hero-eyebrow {
@@ -237,13 +238,13 @@
             font-size: clamp(32px, 5vw, 56px);
             font-weight: 800;
             line-height: 1.15;
-            color: var(--gray-900);
+            color: var(--white);
             margin-bottom: 20px;
         }
 
         .hero-subheadline {
             font-size: clamp(18px, 2.5vw, 22px);
-            color: var(--gray-600);
+            color: rgba(255,255,255,0.85);
             margin-bottom: 32px;
             max-width: 700px;
         }
@@ -284,17 +285,17 @@
 
         /* ===== PURCHASE BOX ===== */
         .purchase-box {
-            background: var(--white);
-            border: 2px solid var(--gray-200);
+            background: #152035;
+            border: 2px solid rgba(212,148,58,0.3);
             border-radius: var(--radius-xl);
             padding: 32px;
-            box-shadow: var(--shadow-lg);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.4);
         }
 
         .purchase-box-header {
             text-align: center;
             padding-bottom: 20px;
-            border-bottom: 1px solid var(--gray-200);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
             margin-bottom: 20px;
         }
 
@@ -314,10 +315,18 @@
             gap: 12px;
         }
 
+        .price-value-label {
+            display: block;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.7;
+            margin-bottom: 4px;
+        }
         .price-current {
             font-size: 48px;
             font-weight: 800;
-            color: var(--gray-900);
+            color: var(--primary);
         }
 
         .price-original {
@@ -348,6 +357,7 @@
             gap: 10px;
             padding: 8px 0;
             font-size: 14px;
+            color: rgba(255,255,255,0.9);
         }
 
         .purchase-box-features .check {
@@ -407,18 +417,18 @@
         }
 
         .payment-icons span {
-            background: var(--gray-200);
+            background: rgba(255,255,255,0.1);
             padding: 4px 10px;
             border-radius: 4px;
             font-size: 12px;
             font-weight: 600;
-            color: var(--gray-600);
+            color: rgba(255,255,255,0.7);
         }
 
         .secure-checkout {
             text-align: center;
             font-size: 12px;
-            color: var(--gray-500);
+            color: rgba(255,255,255,0.5);
             margin-top: 16px;
             display: flex;
             align-items: center;
@@ -432,26 +442,26 @@
 
         /* ===== STATS SECTION ===== */
         .stats-section {
-            padding: 1px 0;
-            background: var(--white);
+            padding: 40px 0;
+            background: #101828;
         }
 
         .stats-intro {
             max-width: 800px;
-            margin: 0 auto 40px;
+            margin: 0 auto;
             text-align: center;
         }
 
         .stats-intro p {
             font-size: 18px;
-            color: var(--gray-700);
+            color: rgba(255,255,255,0.85);
             line-height: 1.8;
             margin-bottom: 16px;
         }
 
         /* ===== PAIN POINTS SECTION ===== */
         .pain-section {
-            padding: 80px 0;
+            padding: 60px 0;
             background: var(--dark);
             color: var(--white);
         }
@@ -463,9 +473,9 @@
         }
 
         .pain-section .subtitle {
-            color: var(--gray-400);
+            color: rgba(255,255,255,0.7);
             font-size: 18px;
-            margin-bottom: 48px;
+            margin-bottom: 40px;
         }
 
         .pain-cards {
@@ -493,32 +503,32 @@
         }
 
         .pain-card p {
-            color: var(--gray-400);
+            color: rgba(255,255,255,0.75);
             font-size: 15px;
         }
 
         /* ===== SOLUTION INTRO ===== */
         .solution-section {
-            padding: 80px 0;
-            background: linear-gradient(180deg, var(--gray-50) 0%, var(--white) 100%);
+            padding: 60px 0;
+            background: #101828;
         }
 
         .solution-intro {
             text-align: center;
             max-width: 800px;
-            margin: 0 auto 48px;
+            margin: 0 auto;
         }
 
         .solution-intro h2 {
             font-size: clamp(28px, 4vw, 42px);
             font-weight: 800;
-            color: var(--gray-900);
+            color: var(--white);
             margin-bottom: 20px;
         }
 
         .solution-intro p {
             font-size: 18px;
-            color: var(--gray-600);
+            color: rgba(255,255,255,0.8);
             line-height: 1.8;
             margin-bottom: 16px;
         }
@@ -529,19 +539,19 @@
 
         /* ===== INCLUDED SECTION ===== */
         .included-section {
-            padding: 80px 0;
-            background: var(--white);
+            padding: 60px 0;
+            background: #0c1220;
         }
 
         .included-header {
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 40px;
         }
 
         .included-header h2 {
             font-size: clamp(28px, 4vw, 42px);
             font-weight: 800;
-            color: var(--gray-900);
+            color: var(--white);
             margin-bottom: 16px;
         }
 
@@ -552,16 +562,16 @@
         }
 
         .included-card {
-            background: var(--white);
-            border: 2px solid var(--gray-200);
+            background: #152035;
+            border: 1px solid rgba(255,255,255,0.1);
             border-radius: var(--radius-lg);
-            padding: 32px;
+            padding: 28px;
             transition: all 0.3s ease;
         }
 
         .included-card:hover {
             border-color: var(--primary);
-            box-shadow: var(--shadow-lg);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
             transform: translateY(-4px);
         }
 
@@ -580,19 +590,19 @@
         .included-card-content h4 {
             font-size: 18px;
             font-weight: 700;
-            color: var(--gray-900);
+            color: var(--white);
             margin-bottom: 12px;
         }
 
         .included-card-content p {
-            color: var(--gray-600);
+            color: rgba(255,255,255,0.75);
             font-size: 15px;
             line-height: 1.7;
         }
 
         /* ===== VALUE STACK ===== */
         .value-section {
-            padding: 80px 0;
+            padding: 60px 0;
             background: var(--dark);
             color: var(--white);
         }
@@ -604,7 +614,7 @@
 
         .value-header {
             text-align: center;
-            margin-bottom: 48px;
+            margin-bottom: 32px;
         }
 
         .value-header h2 {
@@ -629,7 +639,7 @@
 
         .value-summary-row span:first-child {
             font-size: 16px;
-            color: var(--gray-400);
+            color: rgba(255,255,255,0.75);
         }
 
         .value-summary-amount {
@@ -671,18 +681,19 @@
 
         /* ===== HOW IT WORKS ===== */
         .how-section {
-            padding: 80px 0;
+            padding: 60px 0;
+            background: #101828;
         }
 
         .how-header {
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 40px;
         }
 
         .how-header h2 {
             font-size: clamp(28px, 4vw, 42px);
             font-weight: 800;
-            color: var(--gray-900);
+            color: var(--white);
             margin-bottom: 16px;
         }
 
@@ -700,7 +711,7 @@
             left: 20%;
             right: 20%;
             height: 3px;
-            background: var(--gray-200);
+            background: rgba(255,255,255,0.15);
             z-index: 0;
         }
 
@@ -728,44 +739,44 @@
         .how-step h3 {
             font-size: 20px;
             font-weight: 700;
-            color: var(--gray-900);
+            color: var(--white);
             margin-bottom: 12px;
         }
 
         .how-step p {
-            color: var(--gray-600);
+            color: rgba(255,255,255,0.75);
             font-size: 15px;
         }
 
         /* ===== TIMELINE / JOURNEY ===== */
         .timeline-section {
-            padding: 80px 0;
-            background: linear-gradient(180deg, var(--gray-50) 0%, var(--white) 100%);
+            padding: 60px 0;
+            background: #0c1220;
         }
 
         .timeline-intro {
             text-align: center;
             max-width: 900px;
-            margin: 0 auto 60px;
+            margin: 0 auto;
         }
 
         .timeline-intro h2 {
             font-size: clamp(28px, 4vw, 42px);
             font-weight: 800;
-            color: var(--gray-900);
+            color: var(--white);
             margin-bottom: 20px;
         }
 
         .timeline-intro p {
             font-size: 18px;
-            color: var(--gray-600);
+            color: rgba(255,255,255,0.8);
             line-height: 1.8;
             margin-bottom: 16px;
         }
 
         /* ===== OPPORTUNITY SECTION ===== */
         .opportunity-section {
-            padding: 80px 0;
+            padding: 60px 0;
             background: var(--dark);
             color: var(--white);
         }
@@ -784,25 +795,26 @@
 
         .opportunity-content p {
             font-size: 18px;
-            color: var(--gray-300);
+            color: rgba(255,255,255,0.85);
             margin-bottom: 20px;
             line-height: 1.8;
         }
 
         /* ===== FAQ ===== */
         .faq-section {
-            padding: 80px 0;
+            padding: 60px 0;
+            background: #101828;
         }
 
         .faq-header {
             text-align: center;
-            margin-bottom: 48px;
+            margin-bottom: 36px;
         }
 
         .faq-header h2 {
             font-size: clamp(28px, 4vw, 42px);
             font-weight: 800;
-            color: var(--gray-900);
+            color: var(--white);
         }
 
         .faq-list {
@@ -811,21 +823,21 @@
         }
 
         .faq-item {
-            border: 1px solid var(--gray-200);
+            border: 1px solid rgba(255,255,255,0.1);
             border-radius: var(--radius);
-            margin-bottom: 16px;
+            margin-bottom: 12px;
             overflow: hidden;
         }
 
         .faq-question {
             width: 100%;
             padding: 20px 24px;
-            background: var(--white);
+            background: #152035;
             border: none;
             text-align: left;
             font-size: 16px;
             font-weight: 600;
-            color: var(--gray-900);
+            color: var(--white);
             cursor: pointer;
             display: flex;
             justify-content: space-between;
@@ -834,7 +846,7 @@
         }
 
         .faq-question:hover {
-            background: var(--gray-50);
+            background: #1a2740;
         }
 
         .faq-question::after {
@@ -851,7 +863,8 @@
         .faq-answer {
             display: none;
             padding: 0 24px 20px;
-            color: var(--gray-600);
+            background: #152035;
+            color: rgba(255,255,255,0.8);
             font-size: 15px;
             line-height: 1.7;
         }
@@ -901,8 +914,8 @@
 
         /* ===== URGENCY SECTION ===== */
         .urgency-section {
-            padding: 80px 0;
-            background: var(--gray-50);
+            padding: 60px 0;
+            background: #0c1220;
         }
 
         .urgency-content {
@@ -914,13 +927,13 @@
         .urgency-content h2 {
             font-size: clamp(28px, 4vw, 42px);
             font-weight: 800;
-            color: var(--gray-900);
+            color: var(--white);
             margin-bottom: 24px;
         }
 
         .urgency-content p {
             font-size: 18px;
-            color: var(--gray-700);
+            color: rgba(255,255,255,0.8);
             margin-bottom: 20px;
             line-height: 1.8;
         }
@@ -929,34 +942,34 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 24px;
-            margin-top: 48px;
+            margin-top: 36px;
         }
 
         .urgency-option {
-            background: var(--white);
-            padding: 32px;
+            background: #152035;
+            padding: 28px;
             border-radius: var(--radius-lg);
-            border: 2px solid var(--gray-200);
+            border: 1px solid rgba(255,255,255,0.1);
             text-align: left;
         }
 
         .urgency-option h3 {
             font-size: 20px;
             font-weight: 700;
-            color: var(--gray-900);
+            color: var(--white);
             margin-bottom: 12px;
         }
 
         .urgency-option p {
             font-size: 15px;
-            color: var(--gray-600);
+            color: rgba(255,255,255,0.75);
             line-height: 1.7;
             margin: 0;
         }
 
         /* ===== FINAL CTA ===== */
         .final-cta-section {
-            padding: 100px 0;
+            padding: 60px 0;
             background: var(--dark);
             color: var(--white);
         }
@@ -975,8 +988,8 @@
 
         .final-cta-content p {
             font-size: 18px;
-            color: var(--gray-400);
-            margin-bottom: 40px;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 32px;
         }
 
         .final-price-display {
@@ -1011,7 +1024,7 @@
             display: flex;
             align-items: center;
             gap: 8px;
-            color: var(--gray-300);
+            color: rgba(255,255,255,0.85);
             font-size: 14px;
         }
 
@@ -1024,8 +1037,8 @@
         /* ===== FOOTER ===== */
         .footer {
             padding: 40px 0;
-            background: var(--gray-900);
-            color: var(--gray-400);
+            background: #080e1a;
+            color: rgba(255,255,255,0.5);
             text-align: center;
             font-size: 13px;
         }
@@ -1045,8 +1058,8 @@
             bottom: 0;
             left: 0;
             right: 0;
-            background: var(--white);
-            box-shadow: 0 -4px 20px rgba(0,0,0,0.1);
+            background: #0c1220;
+            box-shadow: 0 -4px 20px rgba(0,0,0,0.4);
             padding: 16px 20px;
             z-index: 999;
             display: none;
@@ -1070,7 +1083,7 @@
         }
 
         .floating-cta-text strong {
-            color: var(--gray-900);
+            color: var(--white);
         }
 
         .floating-cta-text .price {
@@ -1307,10 +1320,11 @@
                     <div class="purchase-box-header">
                         <div class="purchase-box-label"></div>
                         <div class="purchase-box-price">
+                            <span class="price-value-label">Over $2,000 value</span>
+                            <span class="price-original" style="text-decoration: line-through; opacity: 0.5; font-size: 1.5rem;">$2,000</span>
                             <span class="price-current">$97</span>
-                            
                         </div>
-                        <div class="purchase-box-savings"></div>
+                        <div class="purchase-box-savings" style="font-size: 0.85rem; opacity: 0.7;">One-time payment. Everything included.</div>
                     </div>
                     
                     <a href="https://buy.stripe.com/8x25kDeBSgjdeREeVTbQY0J" class="btn btn-primary btn-block btn-pulse" target="_blank" rel="noopener noreferrer">
@@ -1327,13 +1341,7 @@
                         <li><span class="check">✓</span> 3 generation runs included</li>
                     </ul>
                     
-                    <div class="guarantee-badge">
-                        <div class="guarantee-badge-icon">🛡️</div>
-                        <div class="guarantee-badge-text">
-                            <strong>60-Day Money-Back Guarantee</strong>
-                            Keep everything even if you refund
-                        </div>
-                    </div>
+                    
                     
                     <div class="payment-icons">
                         <span>💳 Visa</span>
@@ -1558,38 +1566,11 @@
                     <button class="faq-question">How long does the session actually take?</button>
                     <div class="faq-answer">The questionnaire takes about 5 minutes. Your brand kit is generated in minutes after that. The whole process from purchase to downloading your assets is under 15 minutes.</div>
                 </div>
-                <div class="faq-item">
-                    <button class="faq-question">What if I'm not satisfied?</button>
-                    <div class="faq-answer">Read the guarantee below. Seriously. It's absurd how much we're removing risk for you.</div>
-                </div>
+                
             </div>
         </div>
     </section>
 
-    <!-- GUARANTEE -->
-    <section class="guarantee-section">
-        <div class="container">
-            <div class="guarantee-content">
-                <div class="guarantee-icon">🛡️</div>
-                <h2>My "Keep Everything" 60-Day Guarantee</h2>
-                <p><strong>Here's the deal:</strong> I want you to try Brand in a Box completely risk-free.</p>
-                <p>Get instant access. Start the session. Answer the questions. Generate your brand kit. Use your designs across all your platforms. Update your profiles with your new colours and logos.</p>
-                <p>If at any point in the next 60 days you decide this isn't for you - for any reason, or for no reason at all - just send me an email and I'll refund every penny.</p>
-                <p><strong>No questions asked. No hoops to jump through. No "delete everything first" requirement.</strong></p>
-                <p><strong>And here's the best part: You keep everything.</strong></p>
-                <p>That's right. Keep your brand guide. Keep the colour palette. Keep the voice guide. Keep all 30 designs. Keep the logos. Keep everything you've already posted.</p>
-                <p><strong>Why would I do this?</strong></p>
-                <p>Because I'm confident this system works. And I know that once you complete the strategy session and see your positioning articulated clearly for the first time, you're going to feel the difference. You're going to show up with confidence. You're going to stop second-guessing every bio and post.</p>
-                <p>I'd rather take on 100% of the risk myself than have you sitting there wondering "what if?"</p>
-                <p><strong>So here's what this means:</strong> You're not risking $97. You're not risking anything. You're simply deciding whether you want a complete brand identity built from your own photos, delivered in minutes.</p>
-                <p>If it doesn't work for you, you get your money back AND you keep everything.</p>
-                <p>That's as fair as I can possibly make it.</p>
-                <p><strong>The only way you lose is by waiting.</strong></p>
-            </div>
-        </div>
-    </section>
-
-    
         <!-- FINAL CTA -->
     <section class="final-cta-section">
         <div class="container">
@@ -1598,11 +1579,12 @@
                 <p>All delivered instantly. No monthly fees. No upsells. Just the complete system.</p>
                 <div class="final-price-display">
                     
+                    <span class="original" style="text-decoration: line-through; opacity: 0.5; font-size: 1.5rem;">$2,000</span>
                     <span class="current">$97</span>
                 </div>
                 <div class="final-cta-features">
                     <span>Instant Digital Access</span>
-                    <span>60-Day Guarantee</span>
+                    <span>3 Generation Runs</span>
                     <span>Keep Everything</span>
                 </div>
                 <a href="https://buy.stripe.com/8x25kDeBSgjdeREeVTbQY0J" class="btn btn-primary btn-large btn-pulse" target="_blank" rel="noopener noreferrer">
@@ -1614,7 +1596,7 @@
                 <p style="font-size: 16px;"><strong>You could have your complete brand identity by this afternoon.</strong></p>
                 <p style="font-size: 16px;">Or you could keep putting it off and showing up inconsistently.</p>
                 <p style="font-size: 16px; margin-top: 24px;"><strong>$97. Complete brand identity. Minutes, not weeks.</strong></p>
-                <p style="font-size: 16px;"><strong>And with the 60-day "Keep Everything" guarantee, you literally cannot lose.</strong></p>
+                <p style="font-size: 16px;"><strong>Your complete brand identity. Minutes away.</strong></p>
             </div>
         </div>
     </section>
@@ -1705,8 +1687,4 @@
         });
     </script>
 
-</body></html>"
-### Ran Playwright code
-```js
-await page.evaluate('() => document.documentElement.outerHTML');
-```
+</body></html>
